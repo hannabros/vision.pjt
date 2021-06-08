@@ -45,7 +45,7 @@ parser.add_argument("--finetune", type=str, default='fc')
 parser.add_argument('--num-classes', type=int, default=None, metavar='N', help='number of label classes (Model default if None)')
 parser.add_argument('--gp', default=None, type=str, metavar='POOL', help='Global pool type, one of (fast, avg, max, avgmax, avgmaxc). Model default if None.')
 parser.add_argument('--img-size', type=int, default=299, metavar='N', help='Image patch size (default: None => model default)')
-parser.add_argument('--augment', action='store_true', default=False, help='Augment images')
+parser.add_argument('--augment', type=str, default='augment', help='Augment images')
 
 parser.add_argument("--batch-size", type=int, default=16)
 parser.add_argument('-j', '--workers', type=int, default=1, metavar='N', help='how many training processes to use (default: 1)')
@@ -140,7 +140,7 @@ def save(args, epoch, train_metrics, eval_metrics, saver):
     _logger.info(f'saved! {output_dir}')
 
 def get_transforms(*, augment=args.augment, args):
-  if augment:
+  if augment == 'augment':
     return A.Compose([
       A.SmallestMaxSize(max_size=args.img_size),
       A.ShiftScaleRotate(shift_limit=0.05, scale_limit=0.05, rotate_limit=15, p=0.5),
@@ -280,7 +280,7 @@ if __name__ == "__main__":
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size)
 
     valid_df = img_df[img_df['tvt'] == 'valid'].reset_index(drop=True)
-    valid_dataset = LungDataset(df=valid_df, transform=get_transforms(augment=False, args=args)) # file directory
+    valid_dataset = LungDataset(df=valid_df, transform=get_transforms(augment='none', args=args)) # file directory
     valid_loader = DataLoader(valid_dataset, batch_size=args.batch_size)
 
     _logger.info('Load Sampler & Loader')

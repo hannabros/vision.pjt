@@ -33,11 +33,13 @@ parser.add_argument('--data-dir', default=None, type=str, help='Path of image fo
 parser.add_argument('--model', default='resnet101', type=str, metavar='MODEL', help='Name of model to train (default: "countception"')
 parser.add_argument('--pretrained', action='store_true', default=False, help='Start with pretrained version of specified network (if avail)')
 parser.add_argument('--initial-checkpoint', default='', type=str, metavar='PATH', help='Initialize model from this checkpoint (default: none)')
+parser.add_argument('--best-checkpoint', default='', type=str, metavar='PATH', help='Best Model Checkpoint')
 parser.add_argument('--checkpoint-hist', type=int, default=10, metavar='N', help='number of checkpoints to keep (default: 10)')
 parser.add_argument("--finetune", type=str, default='fc')
 parser.add_argument('--num-classes', type=int, default=None, metavar='N', help='number of label classes (Model default if None)')
 parser.add_argument('--gp', default=None, type=str, metavar='POOL', help='Global pool type, one of (fast, avg, max, avgmax, avgmaxc). Model default if None.')
 parser.add_argument('--img-size', type=int, default=299, metavar='N', help='Image patch size (default: None => model default)')
+parser.add_argument('--augment', type=str, default='augment', help='Augment images')
 
 parser.add_argument("--batch-size", type=int, default=16)
 parser.add_argument('-j', '--workers', type=int, default=1, metavar='N', help='how many training processes to use (default: 1)')
@@ -84,7 +86,7 @@ args = parser.parse_args()
 args_text = yaml.safe_dump(args.__dict__, default_flow_style=False)
 
 def get_transforms(*, augment=args.augment, args):
-  if augment:
+  if augment == 'augment':
     return A.Compose([
       A.SmallestMaxSize(max_size=args.img_size),
       A.ShiftScaleRotate(shift_limit=0.05, scale_limit=0.05, rotate_limit=15, p=0.5),
@@ -126,7 +128,7 @@ if __name__ == "__main__":
                      num_classes=args.num_classes,
                      in_chans=3,
                      pretrained=args.pretrained,
-                     checkpoint_path=args.checkpoint)
+                     checkpoint_path=args.best_checkpoint)
 
     model.to(device)
 
@@ -164,4 +166,7 @@ if __name__ == "__main__":
     _logger.info(confusion_matrix(true_ids, pred_ids))
 
     result_df = pd.DataFrame({'image_name': test_df['image_name'], 'true':true_ids, 'pred':pred_ids})
-    result_df.to_csv(os.path.join(args.output, args.experiment, f'result_{args.model}.csv'), index=False)
+
+    save_path = os.path.join(args.output, args.experiment)
+    result_df.to_csv(os.path.join(save_path, f'result_{args.model}.csv'), index=False)
+    _logger.info(f'result saved to {save_path}')
