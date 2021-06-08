@@ -1,5 +1,7 @@
-data/
-output/
-wandb/
+!timm/data
+data/skin_images/*
+output/*
+wandb/*
 *.tar
+*.zip
 **/.vscode/
