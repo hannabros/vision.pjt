@@ -301,7 +301,7 @@ if __name__ == "__main__":
         model.train()
         min_val_loss = 10.0
         max_accuracy = 0.0
-        early_stopping = EarlyStopping(patience=2, delta=0.0001, verbose=True)
+        early_stopping = EarlyStopping(patience=2, delta=0.001, verbose=True)
         for epoch in range(args.epochs):
             val_losses_t = AverageMeter()
             # Train
