@@ -128,18 +128,14 @@ if __name__ == "__main__":
                      num_classes=args.num_classes,
                      in_chans=3,
                      pretrained=args.pretrained,
-                     checkpoint_path=args.checkpoint)
+                     checkpoint_path=args.best_checkpoint)
 
     model.to(device)
-
     img_df = pd.read_csv(args.csv_path)  # csv directory
-    img_names, labels = list(img_df['image_name']), list(img_df['benign_malignant'])
+    img_names, labels = list(img_df['image_link']), list(img_df['label'])
     img_index = list(range(len(img_names)))
-    train_valid_index, test_index, train_valid_labels, test_labels = train_test_split(
-        img_index, labels, test_size=0.2, shuffle=True, stratify=labels, random_state=args.random_seed
-    )
-    test_df = img_df[img_df.index.isin(test_index)].reset_index(drop=True)
-    test_dataset = LungDataset(data_dir=args.data_dir, df=test_df, transform=get_transforms(augment=args.augment, args=args))  # file directory
+    test_df = img_df[img_df['tvt'] == 'test'].reset_index(drop=True)
+    test_dataset = LungDataset(df=test_df, transform=get_transforms(augment=args.augment, args=args)) # file directory
     test_loader = DataLoader(test_dataset, batch_size=args.batch_size)
 
     model.eval()
@@ -181,7 +177,7 @@ if __name__ == "__main__":
             groups.append([row['image_uq'], same_cnt, total_cnt, round(same_cnt/total_cnt, 4)])
     tile_df = pd.DataFrame(groups, columns=['image_name', 'correct', 'total', 'percent'])
 
-    save_path = os.path.join(args.output, args.experiment)
+    save_path = os.path.join(args.output, args.model, args.experiment)
     test_df.to_csv(os.path.join(save_path, f'result_{args.model}.csv'), index=False)
     tile_df.to_csv(os.path.join(save_path, f'tile_{args.model}.csv'), index=False)
     _logger.info(f'result saved to {save_path}')

@@ -167,6 +167,6 @@ if __name__ == "__main__":
 
     result_df = pd.DataFrame({'image_name': test_df['image_name'], 'true':true_ids, 'pred':pred_ids})
 
-    save_path = os.path.join(args.output, args.experiment)
+    save_path = os.path.join(args.output, args.model, args.experiment)
     result_df.to_csv(os.path.join(save_path, f'result_{args.model}.csv'), index=False)
     _logger.info(f'result saved to {save_path}')
