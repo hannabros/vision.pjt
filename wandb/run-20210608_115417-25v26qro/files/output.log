@@ -1,0 +1,27 @@
+GPU: Tesla T4
+Loading Model
+Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-pit-weights/pit_b_820.pth)
+21200 5300
+20
+0.0001
+Loading Dataset
+Load Sampler & Loader
+Start to Train ...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  6%|█████████████▌                                                                                                                                                                                                                         | 39/663 [00:33<08:52,  1.17it/s]
+Model valid loss was 10.0
+Bye!

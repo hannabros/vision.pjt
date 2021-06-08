@@ -1,0 +1,107 @@
+GPU: Tesla T4
+GPU: Tesla T4
+GPU: Tesla T4
+Loading Model
+Loading Model
+Loading Model
+Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-vitjx/jx_vit_base_p16_224-80ecf9dd.pth)
+Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-vitjx/jx_vit_base_p16_224-80ecf9dd.pth)
+Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-vitjx/jx_vit_base_p16_224-80ecf9dd.pth)
+Downloading: "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-vitjx/jx_vit_base_p16_224-80ecf9dd.pth" to /home/ubuntu/.cache/torch/hub/checkpoints/jx_vit_base_p16_224-80ecf9dd.pth
+20
+20
+20
+0.0001
+0.0001
+0.0001
+Loading Dataset
+Loading Dataset
+Loading Dataset
+Load Sampler & Loader
+Load Sampler & Loader
+Load Sampler & Loader
+Start to Train ...
+Start to Train ...
+Start to Train ...
+  0%|                                                                                                                                                                                                                                                                | 0/42 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 98%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████      | 41/42 [06:45<00:10, 10.12s/it]epoch: 0, total_loss: 0.20456862467385473, LR: 0.0001
+epoch: 0, total_loss: 0.20456862467385473, LR: 0.0001
+epoch: 0, total_loss: 0.20456862467385473, LR: 0.0001
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 42/42 [06:49<00:00,  9.74s/it]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 36%|████████████████████████████████████████████████████████████████████████████████████████▏                                                                                                                                                              | 15/42 [02:32<04:35, 10.21s/it]Exception in thread Thread-4:
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/vision/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/ubuntu/anaconda3/envs/vision/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/ubuntu/anaconda3/envs/vision/lib/python3.7/site-packages/wandb/sdk/wandb_run.py", line 180, in check_network_status
+    status_response = self._interface.communicate_network_status()
+  File "/home/ubuntu/anaconda3/envs/vision/lib/python3.7/site-packages/wandb/sdk/interface/interface.py", line 755, in communicate_network_status
+    resp = self._communicate(req, timeout=timeout, local=True)
+  File "/home/ubuntu/anaconda3/envs/vision/lib/python3.7/site-packages/wandb/sdk/interface/interface.py", line 545, in _communicate
+    return self._communicate_async(rec, local=local).get(timeout=timeout)
+  File "/home/ubuntu/anaconda3/envs/vision/lib/python3.7/site-packages/wandb/sdk/interface/interface.py", line 550, in _communicate_async
+    raise Exception("The wandb backend process has shutdown")
+Exception: The wandb backend process has shutdown
+ 36%|████████████████████████████████████████████████████████████████████████████████████████▏                                                                                                                                                              | 15/42 [02:43<04:53, 10.87s/it]
+Model valid loss was 10.0
+Model valid loss was 10.0
+Model valid loss was 10.0
+Bye!
+Bye!

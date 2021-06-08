@@ -1,0 +1,16 @@
+GPU: Tesla T4
+GPU: Tesla T4
+Loading Model
+Loading Model
+Traceback (most recent call last):
+  File "train.py", line 191, in <module>
+    checkpoint_path=args.initial_checkpoint)
+  File "/home/ubuntu/workspace/vision.pjt/timm/models/factory.py", line 81, in create_model
+    model = create_fn(pretrained=pretrained, **kwargs)
+  File "/home/ubuntu/workspace/vision.pjt/timm/models/vision_transformer.py", line 443, in vit_base_patch16_224
+    model = _create_vision_transformer('vit_base_patch16_224', pretrained=pretrained, **model_kwargs)
+  File "/home/ubuntu/workspace/vision.pjt/timm/models/vision_transformer.py", line 416, in _create_vision_transformer
+    **kwargs)
+  File "/home/ubuntu/workspace/vision.pjt/timm/models/helpers.py", line 438, in build_model_with_cfg
+    model = model_cls(**kwargs) if model_cfg is None else model_cls(cfg=model_cfg, **kwargs)
+TypeError: __init__() got an unexpected keyword argument 'global_pool'

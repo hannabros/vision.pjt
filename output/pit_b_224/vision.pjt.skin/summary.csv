@@ -1,0 +1,2 @@
+epoch,train_loss,eval_loss,eval_accuracy
+1,0.08685231623969164,0.11168172542589257,"tensor(0.9815, device='cuda:0')"

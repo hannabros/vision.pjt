@@ -1,0 +1,42 @@
+GPU: Tesla T4
+Loading Model
+Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-pit-weights/pit_b_820.pth)
+21200 5300
+20
+0.0001
+Loading Dataset
+Load Sampler & Loader
+Start to Train ...
+  0%|                                                                                                                                                                                                                                                | 0/166 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "train.py", line 316, in <module>
+    optimizer=optimizer, loss_fn=loss_fn, device=device, args=args)
+  File "train.py", line 185, in train_one_epoch
+    y_preds = model(image)
+  File "/home/ubuntu/anaconda3/envs/vision/lib/python3.7/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/ubuntu/workspace/vision.pjt/timm/models/pit.py", line 227, in forward
+    x = self.forward_features(x)
+  File "/home/ubuntu/workspace/vision.pjt/timm/models/pit.py", line 222, in forward_features
+    x, cls_tokens = self.transformers((x, cls_tokens))
+  File "/home/ubuntu/anaconda3/envs/vision/lib/python3.7/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/ubuntu/workspace/vision.pjt/timm/models/pit.py", line 73, in forward
+    x = module(x)
+  File "/home/ubuntu/anaconda3/envs/vision/lib/python3.7/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/ubuntu/workspace/vision.pjt/timm/models/pit.py", line 107, in forward
+    x = self.blocks(x)
+  File "/home/ubuntu/anaconda3/envs/vision/lib/python3.7/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/ubuntu/anaconda3/envs/vision/lib/python3.7/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/ubuntu/anaconda3/envs/vision/lib/python3.7/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/ubuntu/workspace/vision.pjt/timm/models/vision_transformer.py", line 177, in forward
+    x = x + self.drop_path(self.attn(self.norm1(x)))
+  File "/home/ubuntu/anaconda3/envs/vision/lib/python3.7/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/ubuntu/workspace/vision.pjt/timm/models/vision_transformer.py", line 152, in forward
+    attn = (q @ k.transpose(-2, -1)) * self.scale
+RuntimeError: CUDA out of memory. Tried to allocate 1.77 GiB (GPU 0; 14.76 GiB total capacity; 2.93 GiB already allocated; 1.03 GiB free; 4.59 GiB reserved in total by PyTorch)
