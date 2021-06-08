@@ -83,8 +83,8 @@ with open(args.config_path, 'r') as f:
 args = parser.parse_args()
 args_text = yaml.safe_dump(args.__dict__, default_flow_style=False)
 
-def get_transforms(*, data, args):
-  if data == 'train' or data == 'test':
+def get_transforms(*, augment=args.augment, args):
+  if augment:
     return A.Compose([
       A.SmallestMaxSize(max_size=args.img_size),
       A.ShiftScaleRotate(shift_limit=0.05, scale_limit=0.05, rotate_limit=15, p=0.5),
@@ -102,7 +102,7 @@ def get_transforms(*, data, args):
       ToTensorV2(),
     ])
 
-  elif data == 'valid':
+  else:
     return A.Compose([
       A.SmallestMaxSize(max_size=args.img_size),
       A.CenterCrop(height=args.img_size, width=args.img_size),
@@ -137,7 +137,7 @@ if __name__ == "__main__":
         img_index, labels, test_size=0.2, shuffle=True, stratify=labels, random_state=args.random_seed
     )
     test_df = img_df[img_df.index.isin(test_index)].reset_index(drop=True)
-    test_dataset = LungDataset(data_dir=args.data_dir, df=test_df, transform=get_transforms(data='test', args=args))  # file directory
+    test_dataset = LungDataset(data_dir=args.data_dir, df=test_df, transform=get_transforms(augment=args.augment, args=args))  # file directory
     test_loader = DataLoader(test_dataset, batch_size=args.batch_size)
 
     model.eval()
