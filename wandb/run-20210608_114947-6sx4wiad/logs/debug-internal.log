@@ -2924,3 +2924,448 @@
 2021-06-08 15:03:43,071 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
 2021-06-08 15:03:49,486 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
 2021-06-08 15:03:49,486 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:03:57,075 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:04:04,310 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:04:04,732 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:04:04,733 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:04:11,079 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:04:19,976 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:04:19,976 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:04:21,083 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:04:34,570 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:04:35,221 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:04:35,222 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:04:39,088 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:04:40,988 DEBUG   SenderThread:29384 [sender.py:send():179] send: history
+2021-06-08 15:04:40,988 DEBUG   SenderThread:29384 [sender.py:send():179] send: summary
+2021-06-08 15:04:40,989 INFO    SenderThread:29384 [sender.py:_save_file():829] saving file wandb-summary.json with policy end
+2021-06-08 15:04:40,990 DEBUG   SenderThread:29384 [sender.py:send():179] send: history
+2021-06-08 15:04:40,990 DEBUG   SenderThread:29384 [sender.py:send():179] send: summary
+2021-06-08 15:04:40,991 INFO    SenderThread:29384 [sender.py:_save_file():829] saving file wandb-summary.json with policy end
+2021-06-08 15:04:41,089 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/wandb-summary.json
+2021-06-08 15:04:43,090 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:04:50,466 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:04:50,467 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:04:57,094 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:05:04,770 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:05:05,709 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:05:05,709 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:05:11,099 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:05:20,950 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:05:20,950 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:05:25,103 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:05:34,973 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:05:36,185 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:05:36,185 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:05:39,107 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:05:51,438 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:05:51,439 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:05:53,111 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:06:05,186 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:06:06,685 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:06:06,685 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:06:07,116 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:06:19,119 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:06:21,935 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:06:21,936 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:06:33,124 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:06:35,404 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:06:37,188 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:06:37,189 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:06:47,128 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:06:52,436 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:06:52,437 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:07:01,132 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:07:05,616 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:07:07,681 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:07:07,681 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:07:15,137 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:07:22,919 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:07:22,919 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:07:29,141 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:07:35,825 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:07:38,164 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:07:38,164 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:07:43,145 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:07:53,410 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:07:53,410 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:07:57,149 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:08:06,019 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:08:08,651 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:08:08,652 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:08:09,153 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:08:23,157 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:08:23,888 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:08:23,888 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:08:36,224 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:08:37,163 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:08:39,300 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:08:39,300 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:08:51,167 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:08:54,544 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:08:54,545 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:09:05,171 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:09:06,413 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:09:09,791 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:09:09,791 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:09:19,175 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:09:25,034 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:09:25,034 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:09:33,179 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:09:36,628 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:09:40,286 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:09:40,286 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:09:45,183 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:09:55,536 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:09:55,536 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:09:59,187 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:10:06,834 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:10:10,851 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:10:10,851 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:10:13,191 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:10:26,102 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:10:26,102 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:10:27,196 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:10:37,054 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:10:41,200 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:10:41,351 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:10:41,352 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:10:56,206 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:10:56,596 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:10:56,597 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:11:07,249 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:11:10,210 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:11:11,841 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:11:11,841 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:11:24,214 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:11:27,105 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:11:27,106 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:11:36,218 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:11:37,449 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:11:42,358 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:11:42,358 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:11:50,222 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:11:57,609 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:11:57,609 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:12:04,227 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:12:07,659 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:12:12,860 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:12:12,860 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:12:18,231 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:12:28,111 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:12:28,111 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:12:30,235 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:12:37,875 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:12:43,804 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:12:43,804 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:12:44,239 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:12:58,243 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:12:59,095 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:12:59,096 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:13:08,070 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:13:12,247 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:13:14,336 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:13:14,337 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:13:26,252 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:13:29,593 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:13:29,594 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:13:38,270 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:13:40,256 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:13:44,838 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:13:44,838 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:13:54,260 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:14:00,089 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:14:00,089 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:14:08,265 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:14:08,476 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:14:10,771 DEBUG   SenderThread:29384 [sender.py:send():179] send: history
+2021-06-08 15:14:10,772 DEBUG   SenderThread:29384 [sender.py:send():179] send: summary
+2021-06-08 15:14:10,772 INFO    SenderThread:29384 [sender.py:_save_file():829] saving file wandb-summary.json with policy end
+2021-06-08 15:14:11,266 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/wandb-summary.json
+2021-06-08 15:14:12,266 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:14:15,351 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:14:15,351 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:14:26,270 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:14:30,606 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:14:30,606 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:14:38,680 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:14:40,275 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:14:45,847 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:14:45,848 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:14:54,279 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:15:01,095 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:15:01,096 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:15:08,283 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:15:08,894 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:15:16,360 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:15:16,361 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:15:20,287 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:15:31,609 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:15:31,609 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:15:34,291 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:15:39,099 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:15:46,865 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:15:46,865 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:15:48,295 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:16:02,115 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:16:02,115 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:16:02,299 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:16:09,308 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:16:16,304 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:16:17,358 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:16:17,362 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:16:30,308 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:16:32,605 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:16:32,606 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:16:39,520 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:16:44,312 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:16:47,852 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:16:47,852 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:16:58,317 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:17:03,104 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:17:03,104 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:17:09,725 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:17:12,321 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:17:18,368 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:17:18,368 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:17:26,325 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:17:33,614 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:17:33,615 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:17:39,918 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:17:40,329 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:17:48,855 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:17:48,856 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:17:54,334 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:18:04,113 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:18:04,113 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:18:08,338 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:18:10,133 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:18:19,357 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:18:19,357 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:18:20,341 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:18:34,346 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:18:34,609 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:18:34,609 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:18:40,332 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:18:48,350 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:18:49,854 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:18:49,854 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:19:02,354 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:19:05,098 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:19:05,099 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:19:10,520 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:19:16,358 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:19:20,345 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:19:20,346 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:19:30,363 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:19:35,588 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:19:35,589 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:19:40,719 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:19:44,367 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:19:50,840 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:19:50,840 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:19:58,372 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:20:06,078 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:20:06,078 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:20:10,375 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:20:10,921 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:20:21,322 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:20:21,322 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:20:24,379 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:20:36,564 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:20:36,564 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:20:38,384 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:20:41,134 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:20:51,812 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:20:51,812 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:20:52,388 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:21:06,392 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:21:07,058 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:21:07,058 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:21:11,347 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:21:20,396 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:21:22,300 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:21:22,300 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:21:34,401 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:21:37,545 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:21:37,545 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:21:41,552 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:21:48,405 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:21:52,790 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:21:52,790 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:22:00,409 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:22:08,034 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:22:08,034 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:22:11,749 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:22:14,413 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:22:23,279 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:22:23,279 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:22:28,417 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:22:38,529 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:22:38,529 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:22:41,947 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:22:42,422 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:22:53,778 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:22:53,778 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:22:56,426 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:23:09,429 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:23:09,429 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:23:10,433 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:23:12,143 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:23:24,438 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:23:24,678 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:23:24,679 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:23:36,441 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:23:39,921 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:23:39,922 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:23:41,566 DEBUG   SenderThread:29384 [sender.py:send():179] send: history
+2021-06-08 15:23:41,566 DEBUG   SenderThread:29384 [sender.py:send():179] send: summary
+2021-06-08 15:23:41,566 INFO    SenderThread:29384 [sender.py:_save_file():829] saving file wandb-summary.json with policy end
+2021-06-08 15:23:42,342 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:23:42,443 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:23:42,444 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/wandb-summary.json
+2021-06-08 15:23:55,172 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:23:55,172 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:23:56,447 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:24:08,451 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:24:10,419 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:24:10,420 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:24:12,544 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:24:22,455 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:24:25,668 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:24:25,668 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:24:34,459 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:24:40,909 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:24:40,909 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:24:42,726 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:24:48,463 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:24:56,149 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:24:56,149 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:25:01,467 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:25:11,404 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:25:11,405 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:25:12,930 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:25:13,471 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:25:26,655 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:25:26,656 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:25:27,475 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:25:39,479 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:25:41,903 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 15:25:41,904 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 15:25:43,141 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:25:53,483 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:25:55,532 DEBUG   SenderThread:29384 [sender.py:send():179] send: history
+2021-06-08 15:25:55,532 DEBUG   SenderThread:29384 [sender.py:send():179] send: summary
+2021-06-08 15:25:55,534 INFO    SenderThread:29384 [sender.py:_save_file():829] saving file wandb-summary.json with policy end
+2021-06-08 15:25:55,534 DEBUG   SenderThread:29384 [sender.py:send():179] send: history
+2021-06-08 15:25:55,534 DEBUG   SenderThread:29384 [sender.py:send():179] send: summary
+2021-06-08 15:25:55,534 INFO    SenderThread:29384 [sender.py:_save_file():829] saving file wandb-summary.json with policy end
+2021-06-08 15:25:56,484 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/wandb-summary.json
+2021-06-08 15:25:57,484 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:25:58,305 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: poll_exit
+2021-06-08 15:25:58,306 DEBUG   SenderThread:29384 [sender.py:send():179] send: telemetry
+2021-06-08 15:25:58,306 DEBUG   SenderThread:29384 [sender.py:send():179] send: exit
+2021-06-08 15:25:58,306 INFO    SenderThread:29384 [sender.py:send_exit():287] handling exit code: 0
+2021-06-08 15:25:58,306 INFO    SenderThread:29384 [sender.py:send_exit():295] send defer
+2021-06-08 15:25:58,306 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: poll_exit
+2021-06-08 15:25:58,306 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: defer
+2021-06-08 15:25:58,307 INFO    HandlerThread:29384 [handler.py:handle_request_defer():141] handle defer: 0
+2021-06-08 15:25:58,307 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: defer
+2021-06-08 15:25:58,307 INFO    SenderThread:29384 [sender.py:send_request_defer():304] handle sender defer: 0
+2021-06-08 15:25:58,307 INFO    SenderThread:29384 [sender.py:send_request_defer():342] send defer: 1
+2021-06-08 15:25:58,307 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: defer
+2021-06-08 15:25:58,307 INFO    HandlerThread:29384 [handler.py:handle_request_defer():141] handle defer: 1
+2021-06-08 15:25:58,340 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: defer
+2021-06-08 15:25:58,341 INFO    SenderThread:29384 [sender.py:send_request_defer():304] handle sender defer: 1
+2021-06-08 15:25:58,341 INFO    SenderThread:29384 [sender.py:send_request_defer():342] send defer: 2
+2021-06-08 15:25:58,341 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: defer
+2021-06-08 15:25:58,341 INFO    HandlerThread:29384 [handler.py:handle_request_defer():141] handle defer: 2
+2021-06-08 15:25:58,341 DEBUG   SenderThread:29384 [sender.py:send():179] send: stats
+2021-06-08 15:25:58,341 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: defer
+2021-06-08 15:25:58,342 INFO    SenderThread:29384 [sender.py:send_request_defer():304] handle sender defer: 2
+2021-06-08 15:25:58,342 INFO    SenderThread:29384 [sender.py:send_request_defer():342] send defer: 3
+2021-06-08 15:25:58,342 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: defer
+2021-06-08 15:25:58,342 INFO    HandlerThread:29384 [handler.py:handle_request_defer():141] handle defer: 3
+2021-06-08 15:25:58,342 DEBUG   SenderThread:29384 [sender.py:send():179] send: summary
+2021-06-08 15:25:58,342 INFO    SenderThread:29384 [sender.py:_save_file():829] saving file wandb-summary.json with policy end
+2021-06-08 15:25:58,342 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: defer
+2021-06-08 15:25:58,342 INFO    SenderThread:29384 [sender.py:send_request_defer():304] handle sender defer: 3
+2021-06-08 15:25:58,343 INFO    SenderThread:29384 [sender.py:send_request_defer():342] send defer: 4
+2021-06-08 15:25:58,343 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: defer
+2021-06-08 15:25:58,343 INFO    HandlerThread:29384 [handler.py:handle_request_defer():141] handle defer: 4
+2021-06-08 15:25:58,343 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: defer
+2021-06-08 15:25:58,343 INFO    SenderThread:29384 [sender.py:send_request_defer():304] handle sender defer: 4
+2021-06-08 15:25:58,408 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: poll_exit
+2021-06-08 15:25:58,484 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:25:58,485 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/wandb-summary.json
+2021-06-08 15:25:58,616 INFO    SenderThread:29384 [sender.py:send_request_defer():342] send defer: 5
+2021-06-08 15:25:58,616 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: poll_exit
+2021-06-08 15:25:58,617 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: defer
+2021-06-08 15:25:58,617 INFO    HandlerThread:29384 [handler.py:handle_request_defer():141] handle defer: 5
+2021-06-08 15:25:58,617 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: defer
+2021-06-08 15:25:58,617 INFO    SenderThread:29384 [sender.py:send_request_defer():304] handle sender defer: 5
+2021-06-08 15:25:58,617 INFO    SenderThread:29384 [dir_watcher.py:finish():282] shutting down directory watcher
+2021-06-08 15:25:58,718 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: poll_exit
+2021-06-08 15:25:59,485 INFO    Thread-8  :29384 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/config.yaml
+2021-06-08 15:25:59,485 INFO    SenderThread:29384 [dir_watcher.py:finish():312] scan: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files
+2021-06-08 15:25:59,485 INFO    SenderThread:29384 [dir_watcher.py:finish():318] scan save: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/wandb-metadata.json wandb-metadata.json
+2021-06-08 15:25:59,485 INFO    SenderThread:29384 [dir_watcher.py:finish():318] scan save: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/config.yaml config.yaml
+2021-06-08 15:25:59,485 INFO    SenderThread:29384 [dir_watcher.py:finish():318] scan save: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/wandb-summary.json wandb-summary.json
+2021-06-08 15:25:59,486 INFO    SenderThread:29384 [dir_watcher.py:finish():318] scan save: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log output.log
+2021-06-08 15:25:59,489 INFO    SenderThread:29384 [dir_watcher.py:finish():318] scan save: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/requirements.txt requirements.txt
+2021-06-08 15:25:59,489 INFO    SenderThread:29384 [dir_watcher.py:finish():318] scan save: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/conda-environment.yaml conda-environment.yaml
+2021-06-08 15:25:59,494 INFO    SenderThread:29384 [sender.py:send_request_defer():342] send defer: 6
+2021-06-08 15:25:59,496 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: poll_exit
+2021-06-08 15:25:59,500 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: defer
+2021-06-08 15:25:59,501 INFO    HandlerThread:29384 [handler.py:handle_request_defer():141] handle defer: 6
+2021-06-08 15:25:59,501 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: defer
+2021-06-08 15:25:59,501 INFO    SenderThread:29384 [sender.py:send_request_defer():304] handle sender defer: 6
+2021-06-08 15:25:59,504 INFO    SenderThread:29384 [file_pusher.py:finish():176] shutting down file pusher
+2021-06-08 15:25:59,504 INFO    SenderThread:29384 [sender.py:send_request_defer():342] send defer: 7
+2021-06-08 15:25:59,505 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: defer
+2021-06-08 15:25:59,505 INFO    HandlerThread:29384 [handler.py:handle_request_defer():141] handle defer: 7
+2021-06-08 15:25:59,505 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: defer
+2021-06-08 15:25:59,505 INFO    SenderThread:29384 [sender.py:send_request_defer():304] handle sender defer: 7
+2021-06-08 15:25:59,602 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: poll_exit
+2021-06-08 15:25:59,891 INFO    SenderThread:29384 [sender.py:send_request_defer():342] send defer: 8
+2021-06-08 15:25:59,891 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: poll_exit
+2021-06-08 15:25:59,892 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: defer
+2021-06-08 15:25:59,892 INFO    HandlerThread:29384 [handler.py:handle_request_defer():141] handle defer: 8
+2021-06-08 15:25:59,892 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: defer
+2021-06-08 15:25:59,893 INFO    SenderThread:29384 [sender.py:send_request_defer():304] handle sender defer: 8
+2021-06-08 15:25:59,893 INFO    SenderThread:29384 [sender.py:send_request_defer():342] send defer: 9
+2021-06-08 15:25:59,893 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: defer
+2021-06-08 15:25:59,893 DEBUG   SenderThread:29384 [sender.py:send():179] send: final
+2021-06-08 15:25:59,893 INFO    HandlerThread:29384 [handler.py:handle_request_defer():141] handle defer: 9
+2021-06-08 15:25:59,893 DEBUG   SenderThread:29384 [sender.py:send():179] send: footer
+2021-06-08 15:25:59,894 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: defer
+2021-06-08 15:25:59,894 INFO    SenderThread:29384 [sender.py:send_request_defer():304] handle sender defer: 9
+2021-06-08 15:25:59,993 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: poll_exit
+2021-06-08 15:25:59,993 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: poll_exit
+2021-06-08 15:26:00,094 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: poll_exit
+2021-06-08 15:26:00,094 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: poll_exit
+2021-06-08 15:26:00,170 INFO    Thread-13 :29384 [upload_job.py:push():133] Uploaded file /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/wandb-summary.json
+2021-06-08 15:26:00,172 INFO    Thread-15 :29384 [upload_job.py:push():133] Uploaded file /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/requirements.txt
+2021-06-08 15:26:00,185 INFO    Thread-12 :29384 [upload_job.py:push():133] Uploaded file /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/config.yaml
+2021-06-08 15:26:00,196 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: poll_exit
+2021-06-08 15:26:00,196 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: poll_exit
+2021-06-08 15:26:00,206 INFO    Thread-16 :29384 [upload_job.py:push():133] Uploaded file /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/conda-environment.yaml
+2021-06-08 15:26:00,297 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: poll_exit
+2021-06-08 15:26:00,297 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: poll_exit
+2021-06-08 15:26:00,359 INFO    Thread-14 :29384 [upload_job.py:push():133] Uploaded file /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/files/output.log
+2021-06-08 15:26:00,399 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: poll_exit
+2021-06-08 15:26:00,399 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: poll_exit
+2021-06-08 15:26:00,501 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: poll_exit
+2021-06-08 15:26:00,502 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: poll_exit
+2021-06-08 15:26:00,603 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: poll_exit
+2021-06-08 15:26:00,603 DEBUG   SenderThread:29384 [sender.py:send_request():193] send_request: poll_exit
+2021-06-08 15:26:00,603 INFO    SenderThread:29384 [file_pusher.py:join():181] waiting for file pusher
+2021-06-08 15:26:00,604 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: get_summary
+2021-06-08 15:26:00,605 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: sampled_history
+2021-06-08 15:26:00,606 DEBUG   HandlerThread:29384 [handler.py:handle_request():124] handle_request: shutdown
+2021-06-08 15:26:00,606 INFO    HandlerThread:29384 [handler.py:finish():638] shutting down handler
+2021-06-08 15:26:00,893 INFO    WriterThread:29384 [datastore.py:close():258] close: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_114947-6sx4wiad/run-6sx4wiad.wandb
+2021-06-08 15:26:01,603 INFO    SenderThread:29384 [sender.py:finish():933] shutting down sender
+2021-06-08 15:26:01,603 INFO    SenderThread:29384 [file_pusher.py:finish():176] shutting down file pusher
+2021-06-08 15:26:01,604 INFO    SenderThread:29384 [file_pusher.py:join():181] waiting for file pusher
+2021-06-08 15:26:01,605 INFO    MainThread:29384 [internal.py:handle_exit():78] Internal process exited

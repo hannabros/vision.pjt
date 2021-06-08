@@ -70,6 +70,7 @@ parser.add_argument('--clip-grad', type=float, default=None, metavar='NORM', hel
 parser.add_argument('--clip-mode', type=str, default='norm', help='Gradient clipping mode. One of ("norm", "value", "agc")')
 # Learning rate schedule parameters
 parser.add_argument('--sched', default='step', type=str, metavar='SCHEDULER', help='LR scheduler (default: "step"')
+parser.add_argument('--loss', default='CE', type=str, metavar='Loss Function', help='Loss Function')
 parser.add_argument('--lr', type=float, default=1e-5, metavar='LR', help='learning rate (default: 0.01)')
 parser.add_argument('--decay-rate', '--dr', type=float, default=0.1, metavar='RATE', help='LR decay rate (default: 0.1)')
 parser.add_argument('--patience-epochs', type=int, default=0, metavar='N', help='patience epochs for Plateau LR scheduler (default: 10')
@@ -262,9 +263,9 @@ if __name__ == "__main__":
     lr_scheduler, num_epochs = create_scheduler(args, optimizer)
     #lr_scheduler = ReduceLROnPlateau(optimizer, factor=0.9, verbose=True)
     num_epochs = args.epochs
-    if args.sched == 'focal':
+    if args.loss == 'focal':
         loss_fn = FocalLoss()
-    else:
+    elif args.loss == 'CE':
         loss_fn = nn.CrossEntropyLoss()
 
     _logger.info(num_epochs)
@@ -274,7 +275,8 @@ if __name__ == "__main__":
     img_df = pd.read_csv(args.csv_path) # csv directory
     img_names, labels = list(img_df['image_link']), list(img_df['label'])
     img_index = list(range(len(img_names)))
-
+    
+    _logger.info(f'augmentation : {args.augment}')
     train_df = img_df[img_df['tvt'] == 'train'].reset_index(drop=True)
     train_dataset = LungDataset(df=train_df, transform=get_transforms(augment=args.augment, args=args)) # file directory
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size)
