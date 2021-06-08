@@ -1588,3 +1588,137 @@
 2021-06-08 13:00:58,952 DEBUG   SenderThread:3162 [sender.py:send():179] send: stats
 2021-06-08 13:00:59,176 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
 2021-06-08 13:01:01,176 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:03,177 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:05,177 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:07,178 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:09,179 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:11,111 DEBUG   HandlerThread:3162 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 13:01:11,111 DEBUG   SenderThread:3162 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 13:01:13,180 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:15,181 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:17,181 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:19,182 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:21,183 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:23,183 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:25,184 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:26,359 DEBUG   HandlerThread:3162 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 13:01:26,360 DEBUG   SenderThread:3162 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 13:01:27,184 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:29,147 DEBUG   SenderThread:3162 [sender.py:send():179] send: stats
+2021-06-08 13:01:29,185 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:31,186 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:33,186 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:35,187 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:37,188 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:39,189 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:41,189 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:41,596 DEBUG   HandlerThread:3162 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 13:01:41,597 DEBUG   SenderThread:3162 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 13:01:43,190 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:45,191 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:47,191 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:49,193 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:51,194 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:53,195 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:55,195 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:56,843 DEBUG   HandlerThread:3162 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 13:01:56,843 DEBUG   SenderThread:3162 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 13:01:57,196 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:59,197 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:01:59,360 DEBUG   SenderThread:3162 [sender.py:send():179] send: stats
+2021-06-08 13:02:01,197 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:03,198 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:05,199 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:07,199 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:09,200 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:11,200 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:12,087 DEBUG   HandlerThread:3162 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 13:02:12,087 DEBUG   SenderThread:3162 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 13:02:13,201 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:15,202 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:17,202 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:19,203 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:21,203 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:23,204 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:25,205 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:27,205 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:27,328 DEBUG   HandlerThread:3162 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 13:02:27,328 DEBUG   SenderThread:3162 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 13:02:29,206 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:29,558 DEBUG   SenderThread:3162 [sender.py:send():179] send: stats
+2021-06-08 13:02:31,207 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:33,207 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:35,208 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:37,208 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:39,209 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:41,210 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:42,586 DEBUG   HandlerThread:3162 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 13:02:42,586 DEBUG   SenderThread:3162 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 13:02:43,210 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:45,211 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:47,212 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:49,212 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:51,213 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:53,213 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:55,214 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:57,215 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:57,933 DEBUG   HandlerThread:3162 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 13:02:57,933 DEBUG   SenderThread:3162 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 13:02:59,215 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:02:59,774 DEBUG   SenderThread:3162 [sender.py:send():179] send: stats
+2021-06-08 13:03:01,216 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:04,217 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:06,217 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:08,218 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:10,219 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:12,220 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:13,179 DEBUG   HandlerThread:3162 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 13:03:13,180 DEBUG   SenderThread:3162 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 13:03:14,220 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:16,221 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:18,222 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:20,222 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:22,223 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:22,998 DEBUG   SenderThread:3162 [sender.py:send():179] send: history
+2021-06-08 13:03:22,998 DEBUG   SenderThread:3162 [sender.py:send():179] send: summary
+2021-06-08 13:03:22,999 INFO    SenderThread:3162 [sender.py:_save_file():829] saving file wandb-summary.json with policy end
+2021-06-08 13:03:23,223 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/wandb-summary.json
+2021-06-08 13:03:24,223 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:26,224 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:28,225 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:28,425 DEBUG   HandlerThread:3162 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 13:03:28,425 DEBUG   SenderThread:3162 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 13:03:29,965 DEBUG   SenderThread:3162 [sender.py:send():179] send: stats
+2021-06-08 13:03:30,225 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:32,226 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:34,227 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:36,227 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:38,228 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:40,229 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:42,229 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:43,669 DEBUG   HandlerThread:3162 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 13:03:43,669 DEBUG   SenderThread:3162 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 13:03:44,230 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:46,231 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:48,232 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:50,232 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:52,233 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:54,233 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:56,234 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:58,235 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:03:58,913 DEBUG   HandlerThread:3162 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 13:03:58,914 DEBUG   SenderThread:3162 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 13:04:00,180 DEBUG   SenderThread:3162 [sender.py:send():179] send: stats
+2021-06-08 13:04:00,235 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:04:02,236 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:04:04,237 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:04:06,237 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:04:08,238 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:04:10,238 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:04:12,241 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:04:14,163 DEBUG   HandlerThread:3162 [handler.py:handle_request():124] handle_request: stop_status
+2021-06-08 13:04:14,164 DEBUG   SenderThread:3162 [sender.py:send_request():193] send_request: stop_status
+2021-06-08 13:04:14,241 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:04:16,242 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:04:18,243 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log
+2021-06-08 13:04:20,243 INFO    Thread-8  :3162 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/ubuntu/workspace/vision.pjt/wandb/run-20210608_122143-ob4ckxdy/files/output.log

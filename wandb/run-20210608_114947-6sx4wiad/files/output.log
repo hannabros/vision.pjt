@@ -310,3 +310,25 @@ saved! /home/ubuntu/workspace/vision.pjt/output/model/vision.pjt.skin
 
 
 
+
+
+ 91%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                    | 10/11 [02:39<00:15, 15.87s/it]avg_val_loss : 0.08828596499833194, avg_accuracy : 0.9806345701217651
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11/11 [02:45<00:00, 15.01s/it]
+best loss was 0.090335375206037
+* Best valid loss * 0.088286
+saving model...
+Current checkpoints:
+ ('/home/ubuntu/workspace/vision.pjt/output/model/vision.pjt.skin/checkpoint-5.pth.tar', 0.08828596499833194)
+ ('/home/ubuntu/workspace/vision.pjt/output/model/vision.pjt.skin/checkpoint-3.pth.tar', 0.090335375206037)
+ ('/home/ubuntu/workspace/vision.pjt/output/model/vision.pjt.skin/checkpoint-1.pth.tar', 0.09500627727671103)
+saved! /home/ubuntu/workspace/vision.pjt/output/model/vision.pjt.skin
+
+
+
+
+
+
+
+
+
+
