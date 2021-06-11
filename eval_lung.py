@@ -179,8 +179,10 @@ if __name__ == "__main__":
             total_cnt = sum(group_df[group_df['image_uq'] == row['image_uq']]['count'])
             groups.append([row['image_uq'], same_cnt, total_cnt, round(same_cnt/total_cnt, 4)])
     tile_df = pd.DataFrame(groups, columns=['image_name', 'correct', 'total', 'percent'])
-
+    
     save_path = os.path.join(args.output, args.model)
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
     test_df.to_csv(os.path.join(save_path, f'result_{args.model}.csv'), index=False)
     tile_df.to_csv(os.path.join(save_path, f'tile_{args.model}.csv'), index=False)
     _logger.info(f'result saved to {save_path}')

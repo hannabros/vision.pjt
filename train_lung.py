@@ -78,6 +78,7 @@ parser.add_argument('--min-lr', type=float, default=1e-5, metavar='LR', help='lo
 parser.add_argument('--warmup-lr', type=float, default=1e-5, metavar='LR', help='warmup learning rate (default: 0.0001)')
 parser.add_argument('--warmup-epochs', type=int, default=0, metavar='N', help='epochs to warmup LR, if scheduler supports')
 parser.add_argument('--decay-epochs', type=float, default=2, metavar='N', help='epoch interval to decay LR')
+parser.add_argument('--early-stop', type=float, default=0.01, metavar='N', help='early stop value')
 
 # Augmentation & regularization parameters
 parser.add_argument('--drop', type=float, default=0.0, metavar='PCT', help='Dropout rate (default: 0.)')
@@ -304,7 +305,7 @@ if __name__ == "__main__":
         model.train()
         min_val_loss = 10.0
         max_accuracy = 0.0
-        early_stopping = EarlyStopping(patience=5, delta=0.001, verbose=True)
+        early_stopping = EarlyStopping(patience=5, delta=args.early_stop, verbose=True)
         for epoch in range(args.epochs):
             val_losses_t = AverageMeter()
             # Train
@@ -316,7 +317,7 @@ if __name__ == "__main__":
                     model=model, loader=valid_loader, device=device, args=args)
                 avg_val_loss, avg_accuracy = eval_metrics['loss'], eval_metrics['accuracy']
                 if args.sched == 'step':
-                    lr_scheduler.step(epoch+1, avg_val_loss)
+                    lr_scheduler.step(epoch+1, eval_metrics[args.eval_metric])
                 else:
                     lr_scheduler.step(avg_val_loss)
 
@@ -327,9 +328,10 @@ if __name__ == "__main__":
                         _logger.info('Early Stop')
                         break
                     else:
-                        min_val_loss = avg_val_loss
-                        _logger.info(f"* Best valid loss * {min_val_loss:4f}")
-                        save(args, epoch, train_metrics, eval_metrics, saver)
+                        if avg_val_loss < min_val_loss:
+                            min_val_loss = avg_val_loss
+                            _logger.info(f"* Best valid loss * {min_val_loss:4f}")
+                            save(args, epoch, train_metrics, eval_metrics, saver)
 
                 elif args.save_best.lower().startswith('acc'):
                     _logger.info(f'best accuracy was {max_accuracy}')
@@ -338,9 +340,10 @@ if __name__ == "__main__":
                         _logger.info('Early Stop')
                         break
                     else:
-                        max_accuracy = avg_accuracy
-                        _logger.info(f"* Best accuracy * {max_accuracy:4f}")
-                        save(args, epoch, train_metrics, eval_metrics, saver)
+                        if avg_accuracy > max_accuracy:
+                            max_accuracy = avg_accuracy
+                            _logger.info(f"* Best accuracy * {max_accuracy:4f}")
+                            save(args, epoch, train_metrics, eval_metrics, saver)
 
     except KeyboardInterrupt:
         if args.save_best.lower().startswith('acc'):
