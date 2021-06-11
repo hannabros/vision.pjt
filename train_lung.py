@@ -77,7 +77,7 @@ parser.add_argument('--patience-epochs', type=int, default=0, metavar='N', help=
 parser.add_argument('--min-lr', type=float, default=1e-5, metavar='LR', help='lower lr bound for cyclic schedulers that hit 0 (1e-5)')
 parser.add_argument('--warmup-lr', type=float, default=1e-5, metavar='LR', help='warmup learning rate (default: 0.0001)')
 parser.add_argument('--warmup-epochs', type=int, default=0, metavar='N', help='epochs to warmup LR, if scheduler supports')
-parser.add_argument('--decay-epochs', type=float, default=0, metavar='N', help='epoch interval to decay LR')
+parser.add_argument('--decay-epochs', type=float, default=2, metavar='N', help='epoch interval to decay LR')
 
 # Augmentation & regularization parameters
 parser.add_argument('--drop', type=float, default=0.0, metavar='PCT', help='Dropout rate (default: 0.)')
@@ -176,6 +176,7 @@ def train_one_epoch(epoch, model, loader, optimizer, loss_fn, device, args):
     second_order = hasattr(optimizer, 'is_second_order') and optimizer.is_second_order
     losses_m = AverageMeter()
     last_idx = len(loader) - 1
+    num_updates = epoch * len(loader)
     for idx, (image, target) in tqdm(enumerate(loader), total=len(loader)):
         last_batch = idx == last_idx
         image = image.to(device)
@@ -197,6 +198,8 @@ def train_one_epoch(epoch, model, loader, optimizer, loss_fn, device, args):
             _logger.info(
                 f'epoch: {epoch}, total_loss: {losses_m.avg}, LR: {avg_lr}')
             wandb.log({"epoch": epoch, "total_loss": losses_m.avg, "LR": avg_lr})
+
+    lr_scheduler.step_update(num_updates=num_updates, metric=losses_m.avg)
 
     return OrderedDict([('loss', losses_m.avg)])
 
@@ -301,7 +304,7 @@ if __name__ == "__main__":
         model.train()
         min_val_loss = 10.0
         max_accuracy = 0.0
-        early_stopping = EarlyStopping(patience=4, delta=0.001, verbose=True)
+        early_stopping = EarlyStopping(patience=5, delta=0.001, verbose=True)
         for epoch in range(args.epochs):
             val_losses_t = AverageMeter()
             # Train
@@ -312,7 +315,10 @@ if __name__ == "__main__":
                 eval_metrics = validate(
                     model=model, loader=valid_loader, device=device, args=args)
                 avg_val_loss, avg_accuracy = eval_metrics['loss'], eval_metrics['accuracy']
-                lr_scheduler.step(avg_val_loss)
+                if args.sched == 'step':
+                    lr_scheduler.step(epoch+1, avg_val_loss)
+                else:
+                    lr_scheduler.step(avg_val_loss)
 
                 if args.save_best.lower().startswith('loss'):
                     _logger.info(f'best loss was {min_val_loss}')

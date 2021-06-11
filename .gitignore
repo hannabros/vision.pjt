@@ -1,7 +1,7 @@
 !timm/data
 data/skin_images/*
 data/preproc_images5/*
-output/*
+output*/*
 wandb/*
 *.tar
 *.zip

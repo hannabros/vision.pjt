@@ -143,7 +143,7 @@ if __name__ == "__main__":
     acc_m = AverageMeter()
     pred_ids = []
     true_ids = []
-    scores_ids = []
+    prob_ids = []
     last_idx = len(test_loader) - 1
     with torch.no_grad():
         for batch_idx, (image, true) in tqdm(enumerate(test_loader), total=len(test_loader)):
@@ -155,7 +155,8 @@ if __name__ == "__main__":
             acc_m.update(acc)
             pred_ids.extend(torch.argmax(y_preds, 1).tolist())
             true_ids.extend(true.tolist())
-            scores_ids.append(y_preds)
+            prob = torch.nn.functional.softmax(y_preds, dim=1).tolist()
+            prob_ids.extend(prob)
 
             if last_batch:
                 _logger.info(f'avg_accuracy : {acc_m.avg}')
@@ -166,9 +167,11 @@ if __name__ == "__main__":
     test_df['image_uq'] = test_df['image_name'].map(lambda x: x.split('_')[1])
     test_df['true'] = true_ids
     test_df['pred'] = pred_ids
-    test_df['result'] = [[round(i, 4) for i in sc] for sc in torch.cat(scores_ids).tolist()]
+    test_df['prob_0'] = [round(pb[0], 4) for pb in prob_ids]
+    test_df['prob_1'] = [round(pb[1], 4) for pb in prob_ids]
+    test_df['prob_2'] = [round(pb[2], 4) for pb in prob_ids]
 
-    group_df = test_df.groupby(['image_uq', 'true', 'pred'])["result"].count().reset_index(name="count")
+    group_df = test_df.groupby(['image_uq', 'true', 'pred'])["prob_0"].count().reset_index(name="count")
     groups = []
     for idx, row in group_df.iterrows():
         if row['true'] == row['pred']:
@@ -177,7 +180,7 @@ if __name__ == "__main__":
             groups.append([row['image_uq'], same_cnt, total_cnt, round(same_cnt/total_cnt, 4)])
     tile_df = pd.DataFrame(groups, columns=['image_name', 'correct', 'total', 'percent'])
 
-    save_path = os.path.join(args.output, args.model, args.experiment)
+    save_path = os.path.join(args.output, args.model)
     test_df.to_csv(os.path.join(save_path, f'result_{args.model}.csv'), index=False)
     tile_df.to_csv(os.path.join(save_path, f'tile_{args.model}.csv'), index=False)
     _logger.info(f'result saved to {save_path}')

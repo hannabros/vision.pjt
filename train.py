@@ -76,7 +76,7 @@ parser.add_argument('--patience-epochs', type=int, default=0, metavar='N', help=
 parser.add_argument('--min-lr', type=float, default=1e-5, metavar='LR', help='lower lr bound for cyclic schedulers that hit 0 (1e-5)')
 parser.add_argument('--warmup-lr', type=float, default=1e-5, metavar='LR', help='warmup learning rate (default: 0.0001)')
 parser.add_argument('--warmup-epochs', type=int, default=0, metavar='N', help='epochs to warmup LR, if scheduler supports')
-parser.add_argument('--decay-epochs', type=float, default=0, metavar='N', help='epoch interval to decay LR')
+parser.add_argument('--decay-epochs', type=float, default=2, metavar='N', help='epoch interval to decay LR')
 
 # Augmentation & regularization parameters
 parser.add_argument('--drop', type=float, default=0.0, metavar='PCT', help='Dropout rate (default: 0.)')
@@ -93,14 +93,24 @@ args_text = yaml.safe_dump(args.__dict__, default_flow_style=False)
 
 wandb.init(project=args.experiment, config=args)
 
+def str2bool(string):
+    if string.lower() in ('true', 't'):
+        return True
+    elif string.lower() in ('false', 'f'):
+        return False
+    else:
+        return string
+
 def determine_layer(model, finetune):
     if isinstance(finetune, bool):
         if finetune:
             for param in model.parameters():
                 param.requires_grad = True
+            _logger.info('unfreezing all layers')
         else:
             for param in model.parameters():
                 param.requires_grad = False
+            _logger.info('freezing all layers')
     else:
         if 'last' in finetune:
             for name, param in model.named_parameters():
@@ -108,18 +118,21 @@ def determine_layer(model, finetune):
                     param.requires_grad = True
                 else:
                     param.requires_grad = False
+            _logger.info('unfreezing last layers')
         elif 'head' in finetune:
             for name, param in model.named_parameters():
                 if 'head' in name:
                     param.requires_grad = True
                 else:
                     param.requires_grad = False
+            _logger.info('unfreezing head layers')
         elif 'fc' in finetune:
             for name, param in model.named_parameters():
                 if 'fc' in name:
                     param.requires_grad = True
                 else:
                     param.requires_grad = False
+            _logger.info('unfreezing fc layers')
     return model
 
 
@@ -175,6 +188,7 @@ def train_one_epoch(epoch, model, loader, optimizer, loss_fn, device, args):
     second_order = hasattr(optimizer, 'is_second_order') and optimizer.is_second_order
     losses_m = AverageMeter()
     last_idx = len(loader) - 1
+    num_updates = epoch * len(loader)
     for idx, (image, target) in tqdm(enumerate(loader), total=len(loader)):
         last_batch = idx == last_idx
         image = image.to(device)
@@ -196,6 +210,8 @@ def train_one_epoch(epoch, model, loader, optimizer, loss_fn, device, args):
             _logger.info(
                 f'epoch: {epoch}, total_loss: {losses_m.avg}, LR: {avg_lr}')
             wandb.log({"epoch": epoch, "total_loss": losses_m.avg, "LR": avg_lr})
+
+    lr_scheduler.step_update(num_updates=num_updates, metric=losses_m.avg)
 
     return OrderedDict([('loss', losses_m.avg)])
 
@@ -249,7 +265,7 @@ if __name__ == "__main__":
     model = model.to(device)
 
     # Freeze/Unfreeze Layer
-    model = determine_layer(model, args.finetune)
+    model = determine_layer(model, str2bool(args.finetune))
 
     # Optimizer
     lr = args.lr
@@ -269,6 +285,8 @@ if __name__ == "__main__":
 
     _logger.info(num_epochs)
     _logger.info(args.lr)
+    _logger.info(loss_fn)
+    _logger.info(lr_scheduler)
 
     _logger.info('Loading Dataset')
     img_df = pd.read_csv(args.csv_path)  # csv directory
@@ -315,7 +333,11 @@ if __name__ == "__main__":
                 eval_metrics = validate(
                     model=model, loader=valid_loader, device=device, args=args)
                 avg_val_loss, avg_accuracy = eval_metrics['loss'], eval_metrics['accuracy']
-                lr_scheduler.step(avg_val_loss)
+
+                if args.sched == 'step':
+                    lr_scheduler.step(epoch+1, avg_val_loss)
+                else:
+                    lr_scheduler.step(avg_val_loss)
 
                 if args.save_best.lower().startswith('loss'):
                     _logger.info(f'best loss was {min_val_loss}')

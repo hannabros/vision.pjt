@@ -147,6 +147,7 @@ if __name__ == "__main__":
     acc_m = AverageMeter()
     pred_ids = []
     true_ids = []
+    prob_ids = []
     last_idx = len(test_loader) - 1
     with torch.no_grad():
         for batch_idx, (image, true) in tqdm(enumerate(test_loader), total=len(test_loader)):
@@ -158,15 +159,19 @@ if __name__ == "__main__":
             acc_m.update(acc)
             pred_ids.extend(torch.argmax(y_preds, 1).tolist())
             true_ids.extend(true.tolist())
+            prob = torch.nn.functional.softmax(y_preds, dim=1).tolist()
+            prob_ids.extend(prob)
 
             if last_batch:
                 _logger.info(f'avg_accuracy : {acc_m.avg}')
-    
+
     _logger.info(classification_report(true_ids, pred_ids))
     _logger.info(confusion_matrix(true_ids, pred_ids))
 
-    result_df = pd.DataFrame({'image_name': test_df['image_name'], 'true':true_ids, 'pred':pred_ids})
-
+    result_df = pd.DataFrame({'image_name': test_df['image_name'], 'true':true_ids, 'pred':pred_ids, 'probability':prob_ids})
+    result_df.to_csv('./result.csv', index=False)
     save_path = os.path.join(args.output, args.model, args.experiment)
+    if not os.path.exists(save_path):
+      os.makedirs(save_path)
     result_df.to_csv(os.path.join(save_path, f'result_{args.model}.csv'), index=False)
     _logger.info(f'result saved to {save_path}')
