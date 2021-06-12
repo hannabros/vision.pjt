@@ -389,7 +389,7 @@ def main():
     # mixup_fn = None
     
     # create data loaders w/ augmentation pipeiine
-    if 'skin' in args.config:
+    if 'skin' in args.experiment:
         _logger.info('Loading Dataset')
         img_df = pd.read_csv(args.csv_path)  # csv directory
         img_names, labels = list(img_df['image_name']), list(img_df['diagnosis'])
@@ -413,7 +413,7 @@ def main():
         print(len(train_index), len(valid_index))
         train_loader = DataLoader(train_dataset, batch_size=args.batch_size, pin_memory=False)
         valid_loader = DataLoader(valid_dataset, batch_size=args.batch_size, pin_memory=False)
-    elif 'lung' in args.config:
+    elif 'lung' in args.experiment:
         _logger.info('Loading Dataset')
         img_df = pd.read_csv(args.csv_path) # csv directory
         img_names, labels = list(img_df['image_link']), list(img_df['label'])
