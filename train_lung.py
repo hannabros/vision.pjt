@@ -78,7 +78,8 @@ parser.add_argument('--min-lr', type=float, default=1e-5, metavar='LR', help='lo
 parser.add_argument('--warmup-lr', type=float, default=1e-5, metavar='LR', help='warmup learning rate (default: 0.0001)')
 parser.add_argument('--warmup-epochs', type=int, default=0, metavar='N', help='epochs to warmup LR, if scheduler supports')
 parser.add_argument('--decay-epochs', type=float, default=2, metavar='N', help='epoch interval to decay LR')
-parser.add_argument('--early-stop', type=float, default=0.01, metavar='N', help='early stop value')
+parser.add_argument('--early-patience', type=float, default=0.01, metavar='N', help='early stop patience')
+parser.add_argument('--early-value', type=float, default=0.01, metavar='N', help='early stop value')
 
 # Augmentation & regularization parameters
 parser.add_argument('--drop', type=float, default=0.0, metavar='PCT', help='Dropout rate (default: 0.)')
@@ -266,7 +267,7 @@ if __name__ == "__main__":
         #optimizer = AdamW(model.parameters(), lr=lr)
     lr_scheduler, num_epochs = create_scheduler(args, optimizer)
     #lr_scheduler = ReduceLROnPlateau(optimizer, factor=0.9, verbose=True)
-    num_epochs = args.epochs
+    #num_epochs = args.epochs
     if args.loss == 'focal':
         loss_fn = FocalLoss()
     elif args.loss == 'CE':
@@ -305,7 +306,7 @@ if __name__ == "__main__":
         model.train()
         min_val_loss = 10.0
         max_accuracy = 0.0
-        early_stopping = EarlyStopping(patience=5, delta=args.early_stop, verbose=True)
+        early_stopping = EarlyStopping(patience=args.early_patience, delta=args.early_value, verbose=True)
         for epoch in range(args.epochs):
             val_losses_t = AverageMeter()
             # Train

@@ -13,7 +13,7 @@ class SkinDataset(Dataset):
     self.data_dir = data_dir
     self.df = df
     self.img_names = df['image_name'].values
-    self.labels = df['benign_malignant'].values
+    self.labels = df['diagnosis'].values
     self.targets = preprocessing.LabelEncoder().fit_transform(self.labels)
     self.transform = transform
       
