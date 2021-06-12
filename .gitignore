@@ -1,5 +1,6 @@
 !timm/data
 data/*
+!data/*.csv
 output*/*
 wandb/*
 *.tar
