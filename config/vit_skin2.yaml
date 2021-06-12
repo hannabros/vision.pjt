@@ -23,7 +23,7 @@ cooldown_epochs: 0
 # training
 batch_size: 64
 epochs: 20
-log_interval: 1
+#log_interval: 1
 valid_every_n_batch: 1
 # misc
 output: "/home/ubuntu/workspace/vision.pjt/output"

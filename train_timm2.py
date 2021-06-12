@@ -288,7 +288,6 @@ parser.add_argument('--torchscript', dest='torchscript', action='store_true',
 parser.add_argument('--log-wandb', action='store_true', default=False,
                     help='log training and validation metrics to wandb')
 
-
 def _parse_args():
     # Do we have a config file to parse?
     args_config, remaining = config_parser.parse_known_args()
@@ -307,6 +306,7 @@ def _parse_args():
 
 
 def main():
+    #wandb.init(project=args.experiment, config=args)
     setup_default_logging()
     args, args_text = _parse_args()
     
@@ -389,71 +389,49 @@ def main():
     # mixup_fn = None
     
     # create data loaders w/ augmentation pipeiine
-    _logger.info('Loading Dataset')
-    img_df = pd.read_csv(args.csv_path)  # csv directory
-    img_names, labels = list(img_df['image_name']), list(img_df['diagnosis'])
-    img_index = list(range(len(img_names)))
-    train_valid_index, _, train_valid_labels, _ = train_test_split(
-        img_index, labels, test_size=0.2, shuffle=True, stratify=labels, random_state=args.seed
-    )
-    kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=args.seed)
-    for fold_index, (train_index, valid_index) in enumerate(kf.split(train_valid_index, train_valid_labels)):
-        train_index = train_index
-        valid_index = valid_index
-        break
-    
-    _logger.info(f'augmentation : {args.augment}')
-    train_df = img_df[img_df.index.isin(train_index)].reset_index(drop=True)
-    train_dataset = SkinDataset(data_dir=args.data_dir, df=train_df, transform=get_transforms(augment=args.augment, args=args))  # file directory
-    valid_df = img_df[img_df.index.isin(valid_index)].reset_index(drop=True)
-    valid_dataset = SkinDataset(data_dir=args.data_dir, df=valid_df, transform=get_transforms(augment='none', args=args))  # file directory
+    if 'skin' in args.config:
+        _logger.info('Loading Dataset')
+        img_df = pd.read_csv(args.csv_path)  # csv directory
+        img_names, labels = list(img_df['image_name']), list(img_df['diagnosis'])
+        img_index = list(range(len(img_names)))
+        train_valid_index, _, train_valid_labels, _ = train_test_split(
+            img_index, labels, test_size=0.2, shuffle=True, stratify=labels, random_state=args.seed
+        )
+        kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=args.seed)
+        for fold_index, (train_index, valid_index) in enumerate(kf.split(train_valid_index, train_valid_labels)):
+            train_index = train_index
+            valid_index = valid_index
+            break
+        
+        _logger.info(f'augmentation : {args.augment}')
+        train_df = img_df[img_df.index.isin(train_index)].reset_index(drop=True)
+        train_dataset = SkinDataset(data_dir=args.data_dir, df=train_df, transform=get_transforms(augment=args.augment, args=args))  # file directory
+        valid_df = img_df[img_df.index.isin(valid_index)].reset_index(drop=True)
+        valid_dataset = SkinDataset(data_dir=args.data_dir, df=valid_df, transform=get_transforms(augment='none', args=args))  # file directory
 
-    _logger.info('Load Sampler & Loader')
-    print(len(train_index), len(valid_index))
-    train_loader = DataLoader(train_dataset, batch_size=args.batch_size, pin_memory=False)
-    valid_loader = DataLoader(valid_dataset, batch_size=args.batch_size, pin_memory=False)
-    # loader_train = create_loader(
-    #     dataset_train,
-    #     input_size=data_config['input_size'],
-    #     batch_size=args.batch_size,
-    #     is_training=True,
-    #     use_prefetcher=args.prefetcher,
-    #     no_aug=args.no_aug,
-    #     re_prob=args.reprob,
-    #     re_mode=args.remode,
-    #     re_count=args.recount,
-    #     re_split=args.resplit,
-    #     scale=args.scale,
-    #     ratio=args.ratio,
-    #     hflip=args.hflip,
-    #     vflip=args.vflip,
-    #     color_jitter=args.color_jitter,
-    #     auto_augment=args.aa,
-    #     num_aug_splits=num_aug_splits,
-    #     interpolation=train_interpolation,
-    #     mean=data_config['mean'],
-    #     std=data_config['std'],
-    #     num_workers=args.workers,
-    #     distributed=args.distributed,
-    #     collate_fn=collate_fn,
-    #     pin_memory=args.pin_mem,
-    #     use_multi_epochs_loader=args.use_multi_epochs_loader
-    # )
+        _logger.info('Load Sampler & Loader')
+        print(len(train_index), len(valid_index))
+        train_loader = DataLoader(train_dataset, batch_size=args.batch_size, pin_memory=False)
+        valid_loader = DataLoader(valid_dataset, batch_size=args.batch_size, pin_memory=False)
+    elif 'lung' in args.config:
+        _logger.info('Loading Dataset')
+        img_df = pd.read_csv(args.csv_path) # csv directory
+        img_names, labels = list(img_df['image_link']), list(img_df['label'])
+        img_index = list(range(len(img_names)))
+        
+        _logger.info(f'augmentation : {args.augment}')
+        train_df = img_df[img_df['tvt'] == 'train'].reset_index(drop=True)
+        train_dataset = LungDataset(df=train_df, transform=get_transforms(augment=args.augment, args=args)) # file directory
+        train_loader = DataLoader(train_dataset, batch_size=args.batch_size)
 
-    # loader_eval = create_loader(
-    #     dataset_eval,
-    #     input_size=data_config['input_size'],
-    #     batch_size=args.validation_batch_size_multiplier * args.batch_size,
-    #     is_training=False,
-    #     use_prefetcher=args.prefetcher,
-    #     interpolation=data_config['interpolation'],
-    #     mean=data_config['mean'],
-    #     std=data_config['std'],
-    #     num_workers=args.workers,
-    #     distributed=args.distributed,
-    #     crop_pct=data_config['crop_pct'],
-    #     pin_memory=args.pin_mem,
-    # )
+        valid_df = img_df[img_df['tvt'] == 'valid'].reset_index(drop=True)
+        valid_dataset = LungDataset(df=valid_df, transform=get_transforms(augment='none', args=args)) # file directory
+        valid_loader = DataLoader(valid_dataset, batch_size=args.batch_size)
+
+        _logger.info('Load Sampler & Loader')
+        _logger.info(len(train_dataset), len(valid_dataset))
+        train_loader = DataLoader(train_dataset, batch_size=args.batch_size)
+        valid_loader = DataLoader(valid_dataset, batch_size=args.batch_size)
 
     # setup loss function
     if args.smoothing:
@@ -474,19 +452,15 @@ def main():
     output_dir = None
     early_stopping = EarlyStopping(patience=args.early_patience, delta=args.early_value, verbose=True)
     if args.rank == 0:
-        if args.experiment:
-            exp_name = args.experiment
-        else:
-            exp_name = '-'.join([
-                datetime.now().strftime("%Y%m%d-%H%M%S"),
-                safe_model_name(args.model),
-                str(data_config['input_size'][-1])
-            ])
+        exp_name = '-'.join([
+            datetime.now().strftime("%Y%m%d-%H%M%S"),
+            safe_model_name(args.model),
+            str(data_config['input_size'][-1])
+        ])
         output_dir = get_outdir(args.output if args.output else './output/train', exp_name)
         decreasing = True if eval_metric == 'loss' else False
         saver = CheckpointSaver(
-            model=model, optimizer=optimizer, args=args, model_ema=model_ema, amp_scaler=loss_scaler,
-            checkpoint_dir=output_dir, recovery_dir=output_dir, decreasing=decreasing, max_history=args.checkpoint_hist)
+            model=model, optimizer=optimizer, args=args, checkpoint_dir=output_dir, recovery_dir=output_dir, decreasing=decreasing, max_history=args.checkpoint_hist)
         with open(os.path.join(output_dir, 'args.yaml'), 'w') as f:
             f.write(args_text)
 
@@ -497,14 +471,14 @@ def main():
                 epoch, model, train_loader, optimizer, train_loss_fn, device, args,
                 lr_scheduler=lr_scheduler, saver=saver, output_dir=output_dir)
 
-            eval_metrics = validate(model, valid_loader, validate_loss_fn, args)
-
+            eval_metrics = validate(model, valid_loader, validate_loss_fn, device, args)
+            
             if lr_scheduler is not None:
                 # step LR for next epoch
                 if args.sched == 'step':
                     lr_scheduler.step(epoch + 1, eval_metrics[eval_metric])
                 else:
-                    lr_scheduler.step()
+                    lr_scheduler.step(epoch)
             
             early_stopping(eval_metric, eval_metrics[eval_metric], model)
             if early_stopping.early_stop:
@@ -565,6 +539,7 @@ def determine_layer(model, finetune):
 
 def get_transforms(*, augment, args):
     transforms_train = A.Compose([
+    A.SmallestMaxSize(max_size=args.img_size*2),
     A.Transpose(p=0.5),
     A.VerticalFlip(p=0.5),
     A.HorizontalFlip(p=0.5),
@@ -682,14 +657,14 @@ def validate(model, loader, loss_fn, device, args, log_suffix=''):
                 output = output[0]
 
             loss = loss_fn(output, target)
-            acc1 = accuracy(output, target, topk=(1))
+            acc = sum([i == j for i, j in zip(torch.argmax(output, 1).tolist(), target)]) / len(target)
 
             reduced_loss = loss.data
 
             #torch.cuda.synchronize()
 
             losses_m.update(reduced_loss.item(), input.size(0))
-            top1_m.update(acc1.item(), output.size(0))
+            top1_m.update(acc.item(), output.size(0))
 
             #batch_time_m.update(time.time() - end)
             end = time.time()
