@@ -1,60 +1,26 @@
-#!/usr/bin/env python3
-""" ImageNet Training Script
-This is intended to be a lean and easily modifiable ImageNet training script that reproduces ImageNet
-training results with some of the latest networks and training techniques. It favours canonical PyTorch
-and standard Python style over trying to be able to 'do it all.' That said, it offers quite a few speed
-and training result improvements over the usual PyTorch example scripts. Repurpose as you see fit.
-This script was started from an early version of the PyTorch ImageNet example
-(https://github.com/pytorch/examples/tree/master/imagenet)
-NVIDIA CUDA specific speedups adopted from NVIDIA Apex examples
-(https://github.com/NVIDIA/apex/tree/master/examples/imagenet)
-Hacked together by / Copyright 2020 Ross Wightman (https://github.com/rwightman)
-"""
+
 import argparse
-import time
 import yaml
 import os
 import logging
-from collections import OrderedDict
-from contextlib import suppress
-from datetime import datetime
 from sklearn.model_selection import train_test_split
-from sklearn.model_selection import StratifiedKFold
-import numpy as np
 import pandas as pd
 from tqdm import tqdm
+import numpy as np
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
+import datetime
 
 import torch
-import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 
-from timm.data import create_dataset, create_loader, resolve_data_config
-from timm.models import create_model, safe_model_name, model_parameters
+from timm.models import create_model, safe_model_name
 from timm.utils import *
-from timm.loss import LabelSmoothingCrossEntropy
-from timm.optim import create_optimizer_v2, optimizer_kwargs
-from timm.scheduler import create_scheduler
-from timm.utils import ApexScaler, NativeScaler
 
 from ImageDataset import SkinDataset, LungDataset
-from util.earlystop import EarlyStopping
-from loss import FocalLoss
+from util.metrics import AverageMeter
 
-has_apex = False
-has_native_amp = False
-try:
-    if getattr(torch.cuda.amp, 'autocast') is not None:
-        has_native_amp = True
-except AttributeError:
-    pass
-
-try:
-    import wandb
-    has_wandb = True
-except ImportError: 
-    has_wandb = False
+from sklearn.metrics import confusion_matrix, classification_report
 
 torch.backends.cudnn.benchmark = True
 _logger = logging.getLogger('train')
@@ -304,239 +270,6 @@ def _parse_args():
     args_text = yaml.safe_dump(args.__dict__, default_flow_style=False)
     return args, args_text
 
-
-def main():
-    #wandb.init(project=args.experiment, config=args)
-    setup_default_logging()
-    args, args_text = _parse_args()
-    
-    if args.log_wandb:
-        if has_wandb:
-            wandb.init(project=args.experiment, config=args)
-        else: 
-            _logger.warning("You've requested to log metrics to wandb but package not found. "
-                            "Metrics not being logged to wandb, try `pip install wandb`")
-             
-    args.prefetcher = not args.no_prefetcher
-    args.distributed = False
-    
-    if torch.cuda.is_available():
-        device = torch.device("cuda")
-        _logger.info(f'GPU: {torch.cuda.get_device_name(0)}')
-    else:
-        device = torch.device("cpu")
-    args.world_size = 1
-    args.rank = 0  # global rank
-    
-    assert args.rank >= 0
-
-    # resolve AMP arguments based on PyTorch / Apex availability
-    use_amp = None
-    
-    random_seed(args.seed, args.rank)
-
-    model = create_model(
-        args.model,
-        pretrained=args.pretrained,
-        num_classes=args.num_classes,
-        drop_rate=args.drop,
-        drop_connect_rate=args.drop_connect,  # DEPRECATED, use drop_path
-        drop_path_rate=args.drop_path,
-        drop_block_rate=args.drop_block,
-        global_pool=args.gp,
-        bn_tf=args.bn_tf,
-        bn_momentum=args.bn_momentum,
-        bn_eps=args.bn_eps,
-        scriptable=args.torchscript,
-        checkpoint_path=args.initial_checkpoint)
-    if args.num_classes is None:
-        assert hasattr(model, 'num_classes'), 'Model must have `num_classes` attr if not set on cmd line/config.'
-        args.num_classes = model.num_classes  # FIXME handle model default vs config num_classes more elegantly
-
-    if args.local_rank == 0:
-        _logger.info(
-            f'Model {safe_model_name(args.model)} created, param count:{sum([m.numel() for m in model.parameters()])}')
-
-    data_config = resolve_data_config(vars(args), model=model, verbose=args.local_rank == 0)
-
-    model = determine_layer(model, args.finetune)
-    # setup augmentation batch splits for contrastive loss or split bn
-    num_aug_splits = 0
-    model.to(device)
-
-    optimizer = create_optimizer_v2(model, **optimizer_kwargs(cfg=args))
-    # setup automatic mixed-precision (AMP) loss scaling and op casting
-    # amp_autocast = suppress  # do nothing
-    loss_scaler = None
-    
-    # setup learning rate schedule and starting epoch
-    lr_scheduler, num_epochs = create_scheduler(args, optimizer)
-    start_epoch = 0
-    
-    if args.local_rank == 0:
-        _logger.info('Scheduled epochs: {}'.format(num_epochs))
-
-    # create the train and eval datasets
-    # dataset_train = create_dataset(
-    #     args.dataset,
-    #     root=args.data_dir, split=args.train_split, is_training=True,
-    #     batch_size=args.batch_size, repeats=args.epoch_repeats)
-    # dataset_eval = create_dataset(
-    #     args.dataset, root=args.data_dir, split=args.val_split, is_training=False, batch_size=args.batch_size)
-
-    # # setup mixup / cutmix
-    # collate_fn = None
-    # mixup_fn = None
-    
-    # create data loaders w/ augmentation pipeiine
-    if 'skin' in args.experiment:
-        _logger.info('Loading Dataset')
-        img_df = pd.read_csv(args.csv_path)  # csv directory
-        img_names, labels = list(img_df['image_name']), list(img_df['diagnosis'])
-        img_index = list(range(len(img_names)))
-        train_valid_index, _, train_valid_labels, _ = train_test_split(
-            img_index, labels, test_size=0.2, shuffle=True, stratify=labels, random_state=args.seed
-        )
-        kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=args.seed)
-        for fold_index, (train_index, valid_index) in enumerate(kf.split(train_valid_index, train_valid_labels)):
-            train_index = train_index
-            valid_index = valid_index
-            break
-        
-        _logger.info(f'augmentation : {args.augment}')
-        train_df = img_df[img_df.index.isin(train_index)].reset_index(drop=True)
-        train_dataset = SkinDataset(data_dir=args.data_dir, df=train_df, transform=get_transforms(augment=args.augment, args=args))  # file directory
-        valid_df = img_df[img_df.index.isin(valid_index)].reset_index(drop=True)
-        valid_dataset = SkinDataset(data_dir=args.data_dir, df=valid_df, transform=get_transforms(augment='none', args=args))  # file directory
-
-        _logger.info('Load Sampler & Loader')
-        print(len(train_index), len(valid_index))
-        train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, pin_memory=False)
-        valid_loader = DataLoader(valid_dataset, batch_size=args.batch_size, shuffle=True, pin_memory=False)
-    elif 'lung' in args.experiment:
-        _logger.info('Loading Dataset')
-        img_df = pd.read_csv(args.csv_path) # csv directory
-        img_names, labels = list(img_df['image_link']), list(img_df['label'])
-        img_index = list(range(len(img_names)))
-        
-        _logger.info(f'augmentation : {args.augment}')
-        train_df = img_df[img_df['tvt'] == 'train'].reset_index(drop=True)
-        train_dataset = LungDataset(df=train_df, transform=get_transforms(augment=args.augment, args=args)) # file directory
-        train_loader = DataLoader(train_dataset, batch_size=args.batch_size)
-
-        valid_df = img_df[img_df['tvt'] == 'valid'].reset_index(drop=True)
-        valid_dataset = LungDataset(df=valid_df, transform=get_transforms(augment='none', args=args)) # file directory
-        valid_loader = DataLoader(valid_dataset, batch_size=args.batch_size)
-
-        _logger.info('Load Sampler & Loader')
-        _logger.info(len(train_dataset), len(valid_dataset))
-        train_loader = DataLoader(train_dataset, shuffle=True, batch_size=args.batch_size)
-        valid_loader = DataLoader(valid_dataset, shuffle=True, batch_size=args.batch_size)
-
-    # setup loss function
-    if args.smoothing:
-        _logger.info('default loss is LabelSmoothing')
-        train_loss_fn = LabelSmoothingCrossEntropy(smoothing=args.smoothing).to(device)
-    else:
-        if args.loss == 'focal':
-            train_loss_fn = FocalLoss().to(device)
-        else:
-            train_loss_fn = nn.CrossEntropyLoss().to(device)
-    validate_loss_fn = nn.CrossEntropyLoss().to(device)
-
-    # setup checkpoint saver and eval metric tracking
-    eval_metric = args.eval_metric
-    best_metric = None
-    best_epoch = None
-    saver = None
-    output_dir = None
-    early_stopping = EarlyStopping(patience=args.early_patience, delta=args.early_value, verbose=True)
-    if args.rank == 0:
-        exp_name = '-'.join([
-            datetime.now().strftime("%Y%m%d-%H%M%S"),
-            safe_model_name(args.model),
-            str(data_config['input_size'][-1])
-        ])
-        output_dir = get_outdir(args.output if args.output else './output/train', exp_name)
-        decreasing = True if eval_metric == 'loss' else False
-        saver = CheckpointSaver(
-            model=model, optimizer=optimizer, args=args, checkpoint_dir=output_dir, recovery_dir=output_dir, decreasing=decreasing, max_history=args.checkpoint_hist)
-        with open(os.path.join(output_dir, 'args.yaml'), 'w') as f:
-            f.write(args_text)
-
-    try:
-        for epoch in range(start_epoch, num_epochs):
-            
-            train_metrics = train_one_epoch(
-                epoch, model, train_loader, optimizer, train_loss_fn, device, args,
-                lr_scheduler=lr_scheduler, saver=saver, output_dir=output_dir)
-
-            eval_metrics = validate(model, valid_loader, validate_loss_fn, device, args)
-            
-            if lr_scheduler is not None:
-                # step LR for next epoch
-                if args.sched == 'step':
-                    lr_scheduler.step(epoch + 1, eval_metrics[eval_metric])
-                else:
-                    lr_scheduler.step(epoch)
-            
-            early_stopping(eval_metric, eval_metrics[eval_metric], model)
-            if early_stopping.early_stop:
-                _logger.info('Early Stop')
-                break
-
-            if output_dir is not None:
-                update_summary(
-                    epoch, train_metrics, eval_metrics, os.path.join(output_dir, 'summary.csv'),
-                    write_header=best_metric is None, log_wandb=args.log_wandb and has_wandb)
-
-            if saver is not None:
-                # save proper checkpoint with eval metric
-                save_metric = eval_metrics[eval_metric]
-                best_metric, best_epoch = saver.save_checkpoint(epoch, metric=save_metric)
-
-    except KeyboardInterrupt:
-        pass
-    if best_metric is not None:
-        _logger.info('*** Best metric: {0} (epoch {1})'.format(best_metric, best_epoch))
-
-def str2bool(string):
-    if string.lower() in ('true', 't'):
-        return True
-    elif string.lower() in ('false', 'f'):
-        return False
-    else:
-        return string
-
-def determine_layer(model, finetune):
-    if isinstance(finetune, bool):
-        if finetune:
-            for param in model.parameters():
-                param.requires_grad = True
-        else:
-            for param in model.parameters():
-                param.requires_grad = False
-    else:
-        if 'last' in finetune:
-            for name, param in model.named_parameters():
-                if 'classifier' in name:
-                    param.requires_grad = True
-                else:
-                    param.requires_grad = False
-        elif 'head' in finetune:
-            for name, param in model.named_parameters():
-                if 'head' in name:
-                    param.requires_grad = True
-                else:
-                    param.requires_grad = False
-        elif 'fc' in finetune:
-            for name, param in model.named_parameters():
-                if 'fc' in name:
-                    param.requires_grad = True
-                else:
-                    param.requires_grad = False
-    return model
-
 def get_transforms(*, augment, args):
     transforms_train = A.Compose([
     A.SmallestMaxSize(max_size=args.img_size*2),
@@ -577,110 +310,104 @@ def get_transforms(*, augment, args):
     else:
         return transforms_val
 
-def train_one_epoch(
-        epoch, model, loader, optimizer, loss_fn, device, args,
-        lr_scheduler=None, saver=None, output_dir=None):
+def main():
+  setup_default_logging()
+  args, args_text = _parse_args()
 
-    second_order = hasattr(optimizer, 'is_second_order') and optimizer.is_second_order
-    #batch_time_m = AverageMeter()
-    #data_time_m = AverageMeter()
-    losses_m = AverageMeter()
+  if torch.cuda.is_available():
+      device = torch.device("cuda")
+      _logger.info(f'GPU: {torch.cuda.get_device_name(0)}')
+  else:
+      device = torch.device("cpu")
 
-    model.train()
+  model = create_model(args.model,
+                    num_classes=args.num_classes,
+                    in_chans=3,
+                    pretrained=args.pretrained,
+                    checkpoint_path=args.initial_checkpoint)
 
-    #end = time.time()
-    last_idx = len(loader) - 1
-    num_updates = epoch * len(loader)
-    for batch_idx, (input, target) in tqdm(enumerate(loader), total=len(loader)):
-        last_batch = batch_idx == last_idx
-        #data_time_m.update(time.time() - end)
-        input = input.to(device)
-        target = target.to(device)
-        output = model(input)
-        loss = loss_fn(output, target)
+  model.to(device)
 
-        if not args.distributed:
-            losses_m.update(loss.item(), input.size(0))
+  if 'skin' in args.experiment:
+    img_df = pd.read_csv(args.csv_path)  # csv directory
+    img_names, labels = list(img_df['image_name']), list(img_df['diagnosis'])
+    img_index = list(range(len(img_names)))
+    train_valid_index, test_index, train_valid_labels, test_labels = train_test_split(
+        img_index, labels, test_size=0.2, shuffle=True, stratify=labels, random_state=args.random_seed
+    )
+    test_df = img_df[img_df.index.isin(test_index)].reset_index(drop=True)
+    test_dataset = SkinDataset(data_dir=args.data_dir, df=test_df, transform=get_transforms(augment=args.augment, args=args))  # file directory
+    test_loader = DataLoader(test_dataset, batch_size=args.batch_size)
+  elif 'lung' in args.experiment:
+    img_df = pd.read_csv(args.csv_path)  # csv directory
+    img_names, labels = list(img_df['image_link']), list(img_df['label'])
+    img_index = list(range(len(img_names)))
+    test_df = img_df[img_df['tvt'] == 'test'].reset_index(drop=True)
+    test_dataset = LungDataset(df=test_df, transform=get_transforms(augment=args.augment, args=args)) # file directory
+    test_loader = DataLoader(test_dataset, batch_size=args.batch_size)
 
-        optimizer.zero_grad()
-        
-        loss.backward(create_graph=second_order)
-        if args.clip_grad is not None:
-            dispatch_clip_grad(
-                model_parameters(model, exclude_head='agc' in args.clip_mode),
-                value=args.clip_grad, mode=args.clip_mode)
-        optimizer.step()
+  model.eval()
 
-        #torch.cuda.synchronize()
-        num_updates += 1
-        #batch_time_m.update(time.time() - end)
-        if last_batch or batch_idx % args.log_interval == 0:
-            lrl = [param_group['lr'] for param_group in optimizer.param_groups]
-            lr = sum(lrl) / len(lrl)
+  acc_m = AverageMeter()
+  pred_ids = []
+  true_ids = []
+  prob_ids = []
+  last_idx = len(test_loader) - 1
+  with torch.no_grad():
+      for batch_idx, (image, true) in tqdm(enumerate(test_loader), total=len(test_loader)):
+          last_batch = batch_idx == last_idx
+          image = image.to(device)
+          true = true.to(device)
+          y_preds = model(image)
+          acc = sum([i == j for i, j in zip(torch.argmax(y_preds, 1).tolist(), true)]) / len(true)
+          acc_m.update(acc)
+          pred_ids.extend(torch.argmax(y_preds, 1).tolist())
+          true_ids.extend(true.tolist())
+          prob = torch.nn.functional.softmax(y_preds, dim=1).tolist()
+          prob_ids.extend(prob)
 
-            if args.local_rank == 0:
-                _logger.info(
-                    'Train: {} [{:>4d}/{} ({:>3.0f}%)]  '
-                    'Loss: {loss.val:>9.6f} ({loss.avg:>6.4f})  '
-                    'LR: {lr:.3e}  '.format(
-                        epoch,
-                        batch_idx, len(loader),
-                        100. * batch_idx / last_idx,
-                        loss=losses_m,
-                        lr=lr))
+          if last_batch:
+              _logger.info(f'avg_accuracy : {acc_m.avg}')
 
-        if lr_scheduler is not None:
-            lr_scheduler.step_update(num_updates=num_updates, metric=losses_m.avg)
+  _logger.info(classification_report(true_ids, pred_ids))
+  _logger.info(confusion_matrix(true_ids, pred_ids))
 
-        end = time.time()
-        # end for
+  exp_name = '-'.join([
+            datetime.now().strftime("%Y%m%d-%H%M%S"),
+            safe_model_name(args.model)
+        ])
+  output_dir = get_outdir(args.output if args.output else './output/train', exp_name)
 
-    return OrderedDict([('loss', losses_m.avg)])
+  if 'skin' in args.experiment:
+    result_df = pd.DataFrame({'image_name': test_df['image_name'], 'true':true_ids, 'pred':pred_ids, 'probability':prob_ids})
+    result_df['prob_0'] = [round(pb[0], 4) for pb in prob_ids]
+    result_df['prob_1'] = [round(pb[1], 4) for pb in prob_ids]
+    result_df['prob_2'] = [round(pb[2], 4) for pb in prob_ids]
+    result_df['prob_3'] = [round(pb[3], 4) for pb in prob_ids]
 
+    result_df.to_csv(os.path.join(output_dir, f'./result_{safe_model_name(args.model)}_skin.csv'), index=False)
+    _logger.info(f'result saved to {output_dir}')
+  
+  elif 'lung' in args.experiment:
+    test_df['image_uq'] = test_df['image_name'].map(lambda x: x.split('_')[1])
+    test_df['true'] = true_ids
+    test_df['pred'] = pred_ids
+    test_df['prob_0'] = [round(pb[0], 4) for pb in prob_ids]
+    test_df['prob_1'] = [round(pb[1], 4) for pb in prob_ids]
+    test_df['prob_2'] = [round(pb[2], 4) for pb in prob_ids]
 
-def validate(model, loader, loss_fn, device, args, log_suffix=''):
-    #batch_time_m = AverageMeter()
-    losses_m = AverageMeter()
-    top1_m = AverageMeter()
+    group_df = test_df.groupby(['image_uq', 'true', 'pred'])["prob_0"].count().reset_index(name="count")
+    groups = []
+    for idx, row in group_df.iterrows():
+        if row['true'] == row['pred']:
+            same_cnt = row['count']
+            total_cnt = sum(group_df[group_df['image_uq'] == row['image_uq']]['count'])
+            groups.append([row['image_uq'], same_cnt, total_cnt, round(same_cnt/total_cnt, 4)])
+    tile_df = pd.DataFrame(groups, columns=['image_name', 'correct', 'total', 'percent'])
+    
+    test_df.to_csv(os.path.join(output_dir, f'./result_{safe_model_name(args.model)})lung.csv'), index=False)
+    tile_df.to_csv(os.path.join(output_dir, f'./tile_{safe_model_name(args.model)}_lung.csv'), index=False)
+    _logger.info(f'result saved to {output_dir}')
 
-    model.eval()
-
-    #end = time.time()
-    last_idx = len(loader) - 1
-    with torch.no_grad():
-        for batch_idx, (input, target) in enumerate(loader):
-            last_batch = batch_idx == last_idx
-            input = input.to(device)
-            target = target.to(device) 
-            output = model(input)
-            if isinstance(output, (tuple, list)):
-                output = output[0]
-
-            loss = loss_fn(output, target)
-            acc = sum([i == j for i, j in zip(torch.argmax(output, 1).tolist(), target)]) / len(target)
-
-            reduced_loss = loss.data
-
-            #torch.cuda.synchronize()
-
-            losses_m.update(reduced_loss.item(), input.size(0))
-            top1_m.update(acc.item(), output.size(0))
-
-            #batch_time_m.update(time.time() - end)
-            end = time.time()
-            if args.local_rank == 0 and (last_batch or batch_idx % args.log_interval == 0):
-                log_name = 'Test' + log_suffix
-                _logger.info(
-                    '{0}: [{1:>4d}/{2}]  '
-                    'Loss: {loss.val:>7.4f} ({loss.avg:>6.4f})  '
-                    'Acc@1: {top1.val:>7.4f} ({top1.avg:>7.4f})  '.format(
-                        log_name, batch_idx, last_idx,
-                        loss=losses_m, top1=top1_m))
-
-    metrics = OrderedDict([('loss', losses_m.avg), ('top1', top1_m.avg)])
-
-    return metrics
-
-
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+  main()

@@ -27,5 +27,5 @@ epochs: 20
 valid_every_n_batch: 1
 # misc
 output: "/home/ubuntu/workspace/vision.pjt/output/"
-csv_path: "/home/ubuntu/workspace/vision.pjt/skin_combine.csv"
+csv_path: "/home/ubuntu/workspace/vision.pjt/data/skin_filter.csv"
 data_dir: "/home/ubuntu/workspace/vision.pjt/data/skin_images"
