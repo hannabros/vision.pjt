@@ -9,7 +9,7 @@ from tqdm import tqdm
 import numpy as np
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
-import datetime
+from datatime import datetime
 
 import torch
 from torch.utils.data import Dataset, DataLoader
@@ -20,7 +20,7 @@ from timm.utils import *
 from ImageDataset import SkinDataset, LungDataset
 from util.metrics import AverageMeter
 
-from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import confusion_matrix, multilabel_confusion_matrix, classification_report
 
 torch.backends.cudnn.benchmark = True
 _logger = logging.getLogger('train')
@@ -401,7 +401,7 @@ def main():
               _logger.info(f'avg_accuracy : {acc_m.avg}')
 
   _logger.info(classification_report(true_ids, pred_ids))
-  _logger.info(confusion_matrix(true_ids, pred_ids))
+  _logger.info(multilabel_confusion_matrix(true_ids, pred_ids))
 
   exp_name = '-'.join([
             datetime.now().strftime("%Y%m%d-%H%M%S"),

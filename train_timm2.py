@@ -74,7 +74,7 @@ parser.add_argument('--data-dir', default=None, type=str, help='Path of image fo
 parser.add_argument("--finetune", type=str, default='fc')
 parser.add_argument('--augment', type=str, default='augment', help='Augment images')
 parser.add_argument("--valid-every-n-batch", type=int, default=2)
-parser.add_argument('--early-patience', type=float, default=0.01, metavar='N', help='early stop patience')
+parser.add_argument('--early-patience', type=str, default=5, metavar='N', help='early stop patience')
 parser.add_argument('--early-value', type=float, default=0.01, metavar='N', help='early stop value')
 parser.add_argument('--loss', default='CE', type=str, metavar='Loss Function', help='Loss Function')
 
@@ -276,7 +276,7 @@ parser.add_argument('--output', default='', type=str, metavar='PATH',
                     help='path to output folder (default: none, current dir)')
 parser.add_argument('--experiment', default='', type=str, metavar='NAME',
                     help='name of train experiment, name of sub-folder for output')
-parser.add_argument('--eval-metric', default='top1', type=str, metavar='EVAL_METRIC',
+parser.add_argument('--eval-metric', default='accuracy', type=str, metavar='EVAL_METRIC',
                     help='Best metric (default: "top1"')
 parser.add_argument('--tta', type=int, default=0, metavar='N',
                     help='Test/inference time augmentation (oversampling) factor. 0=None (default: 0)')
