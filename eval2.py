@@ -9,7 +9,7 @@ from tqdm import tqdm
 import numpy as np
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
-from datatime import datetime
+from datetime import datetime
 
 import torch
 from torch.utils.data import Dataset, DataLoader
@@ -364,7 +364,7 @@ def main():
     img_names, labels = list(img_df['image_name']), list(img_df['diagnosis'])
     img_index = list(range(len(img_names)))
     train_valid_index, test_index, train_valid_labels, test_labels = train_test_split(
-        img_index, labels, test_size=0.2, shuffle=True, stratify=labels, random_state=args.random_seed
+        img_index, labels, test_size=0.2, shuffle=True, stratify=labels, random_state=args.seed
     )
     test_df = img_df[img_df.index.isin(test_index)].reset_index(drop=True)
     test_dataset = SkinDataset(data_dir=args.data_dir, df=test_df, transform=get_skin_transforms(augment=args.augment, args=args))  # file directory
@@ -436,7 +436,7 @@ def main():
             groups.append([row['image_uq'], same_cnt, total_cnt, round(same_cnt/total_cnt, 4)])
     tile_df = pd.DataFrame(groups, columns=['image_name', 'correct', 'total', 'percent'])
     
-    test_df.to_csv(os.path.join(output_dir, f'./result_{safe_model_name(args.model)})lung.csv'), index=False)
+    test_df.to_csv(os.path.join(output_dir, f'./result_{safe_model_name(args.model)}_lung.csv'), index=False)
     tile_df.to_csv(os.path.join(output_dir, f'./tile_{safe_model_name(args.model)}_lung.csv'), index=False)
     _logger.info(f'result saved to {output_dir}')
 

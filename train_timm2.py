@@ -709,7 +709,7 @@ def validate(model, loader, loss_fn, device, args, log_suffix=''):
                         log_name, batch_idx, last_idx,
                         loss=losses_m, top1=top1_m))
 
-    metrics = OrderedDict([('loss', losses_m.avg), ('top1', top1_m.avg)])
+    metrics = OrderedDict([('loss', losses_m.avg), ('accuracy', top1_m.avg)])
 
     return metrics
 
