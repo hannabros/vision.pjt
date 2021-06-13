@@ -405,9 +405,9 @@ def main():
         
         _logger.info(f'augmentation : {args.augment}')
         train_df = img_df[img_df.index.isin(train_index)].reset_index(drop=True)
-        train_dataset = SkinDataset(data_dir=args.data_dir, df=train_df, transform=get_transforms(augment=args.augment, args=args))  # file directory
+        train_dataset = SkinDataset(data_dir=args.data_dir, df=train_df, transform=get_skin_transforms(augment=args.augment, args=args))  # file directory
         valid_df = img_df[img_df.index.isin(valid_index)].reset_index(drop=True)
-        valid_dataset = SkinDataset(data_dir=args.data_dir, df=valid_df, transform=get_transforms(augment='none', args=args))  # file directory
+        valid_dataset = SkinDataset(data_dir=args.data_dir, df=valid_df, transform=get_skin_transforms(augment='none', args=args))  # file directory
 
         _logger.info('Load Sampler & Loader')
         print(len(train_index), len(valid_index))
@@ -421,11 +421,11 @@ def main():
         
         _logger.info(f'augmentation : {args.augment}')
         train_df = img_df[img_df['tvt'] == 'train'].reset_index(drop=True)
-        train_dataset = LungDataset(df=train_df, transform=get_transforms(augment=args.augment, args=args)) # file directory
+        train_dataset = LungDataset(df=train_df, transform=get_lung_transforms(augment=args.augment, args=args)) # file directory
         train_loader = DataLoader(train_dataset, batch_size=args.batch_size)
 
         valid_df = img_df[img_df['tvt'] == 'valid'].reset_index(drop=True)
-        valid_dataset = LungDataset(df=valid_df, transform=get_transforms(augment='none', args=args)) # file directory
+        valid_dataset = LungDataset(df=valid_df, transform=get_lung_transforms(augment='none', args=args)) # file directory
         valid_loader = DataLoader(valid_dataset, batch_size=args.batch_size)
 
         _logger.info('Load Sampler & Loader')
@@ -536,6 +536,7 @@ def determine_layer(model, finetune):
                 else:
                     param.requires_grad = False
     return model
+
 
 def get_skin_transforms(*, augment, args):
     transforms_train = A.Compose([
