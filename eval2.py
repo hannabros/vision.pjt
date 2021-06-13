@@ -270,7 +270,7 @@ def _parse_args():
     args_text = yaml.safe_dump(args.__dict__, default_flow_style=False)
     return args, args_text
 
-def get_transforms(*, augment, args):
+def get_skin_transforms(*, augment, args):
     transforms_train = A.Compose([
     A.SmallestMaxSize(max_size=args.img_size*2),
     A.Transpose(p=0.5),
@@ -310,6 +310,37 @@ def get_transforms(*, augment, args):
     else:
         return transforms_val
 
+def get_lung_transforms(*, augment, args):
+    transforms_train = A.Compose([
+    A.SmallestMaxSize(max_size=args.img_size),
+    A.Transpose(p=0.5),
+    A.VerticalFlip(p=0.5),
+    A.HorizontalFlip(p=0.5),
+    A.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=0.75),
+    
+    A.Resize(args.img_size, args.img_size),
+    
+    A.Normalize(
+        mean=[0.485, 0.456, 0.406],
+        std=[0.229, 0.224, 0.225],
+    ),
+    ToTensorV2()
+    ])
+
+    transforms_val = A.Compose([
+        A.Resize(args.img_size, args.img_size),
+        A.Normalize(
+            mean=[0.485, 0.456, 0.406],
+            std=[0.229, 0.224, 0.225],
+        ),
+        ToTensorV2()
+    ])
+
+    if augment == 'augment':
+        return transforms_train
+    else:
+        return transforms_val
+
 def main():
   setup_default_logging()
   args, args_text = _parse_args()
@@ -336,14 +367,14 @@ def main():
         img_index, labels, test_size=0.2, shuffle=True, stratify=labels, random_state=args.random_seed
     )
     test_df = img_df[img_df.index.isin(test_index)].reset_index(drop=True)
-    test_dataset = SkinDataset(data_dir=args.data_dir, df=test_df, transform=get_transforms(augment=args.augment, args=args))  # file directory
+    test_dataset = SkinDataset(data_dir=args.data_dir, df=test_df, transform=get_skin_transforms(augment=args.augment, args=args))  # file directory
     test_loader = DataLoader(test_dataset, batch_size=args.batch_size)
   elif 'lung' in args.experiment:
     img_df = pd.read_csv(args.csv_path)  # csv directory
     img_names, labels = list(img_df['image_link']), list(img_df['label'])
     img_index = list(range(len(img_names)))
     test_df = img_df[img_df['tvt'] == 'test'].reset_index(drop=True)
-    test_dataset = LungDataset(df=test_df, transform=get_transforms(augment=args.augment, args=args)) # file directory
+    test_dataset = LungDataset(df=test_df, transform=get_lung_transforms(augment=args.augment, args=args)) # file directory
     test_loader = DataLoader(test_dataset, batch_size=args.batch_size)
 
   model.eval()

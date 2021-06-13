@@ -537,7 +537,7 @@ def determine_layer(model, finetune):
                     param.requires_grad = False
     return model
 
-def get_transforms(*, augment, args):
+def get_skin_transforms(*, augment, args):
     transforms_train = A.Compose([
     A.SmallestMaxSize(max_size=args.img_size*2),
     A.Transpose(p=0.5),
@@ -569,6 +569,37 @@ def get_transforms(*, augment, args):
     transforms_val = A.Compose([
         A.Resize(args.img_size, args.img_size),
         A.Normalize(),
+        ToTensorV2()
+    ])
+
+    if augment == 'augment':
+        return transforms_train
+    else:
+        return transforms_val
+
+def get_lung_transforms(*, augment, args):
+    transforms_train = A.Compose([
+    A.SmallestMaxSize(max_size=args.img_size),
+    A.Transpose(p=0.5),
+    A.VerticalFlip(p=0.5),
+    A.HorizontalFlip(p=0.5),
+    A.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=0.75),
+    
+    A.Resize(args.img_size, args.img_size),
+    
+    A.Normalize(
+        mean=[0.485, 0.456, 0.406],
+        std=[0.229, 0.224, 0.225],
+    ),
+    ToTensorV2()
+    ])
+
+    transforms_val = A.Compose([
+        A.Resize(args.img_size, args.img_size),
+        A.Normalize(
+            mean=[0.485, 0.456, 0.406],
+            std=[0.229, 0.224, 0.225],
+        ),
         ToTensorV2()
     ])
 
