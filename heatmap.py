@@ -10,6 +10,7 @@ from __future__ import division
 from __future__ import print_function
 
 import argparse
+from os import replace
 import os.path
 import re
 import sys
@@ -52,42 +53,25 @@ def dict_tiles_stats(filepath):
 
 
 def get_inference_from_file(TileName, stats_dict):
-	# print("basename is :" + basename)
-	current_score = -1
-	score_correction = 0
-	oClass = -1
-	cmap = plt.get_cmap('binary')
 	if TileName in stats_dict.keys():
 		line = stats_dict[TileName]
-		lineProb = line.split('[')[1]
-		lineProb = lineProb.split(']')[0]
-		lineProb = lineProb.split()
-		line = line.replace('[','').replace(']','').split()
+		lineProb = [prob.replace('\n', '') for prob in line.split(',')[-3:]]
 		
-		is_TP = line[1]
 		NumberOfClasses = len(lineProb)
 		class_all = []
 		sum_class = 0
-		for nC in range(1,NumberOfClasses):
+		for nC in range(0,NumberOfClasses):
 			class_all.append(float(lineProb[nC]))
 			sum_class = sum_class + float(lineProb[nC])
 		for nC in range(NumberOfClasses-1):
 			if sum_class == 0:
 				sum_class = 1
 			class_all[nC] = class_all[nC] / sum_class
-		current_score = max(class_all)
-		oClass = class_all.index(max(class_all)) + 1
-		score_correction = 1.0 / len(class_all)
-		
 	else:
 		print("image not found in text file %s ... and that's weird..." % TileName)
-	
 	return class_all
 
-
-
 def main():
-
 	nClasses = [int(x) for x in FLAGS.Classes.split(',')]
 	print("nClasses: " + str(nClasses))
 
@@ -97,10 +81,6 @@ def main():
 		nThresh = [float(x) for x in FLAGS.threshold.split(',')]
 		if len(nThresh) != len(nClasses):
 			sys.exit('the length of the threshold option must match the one of the class option')
-
-
-
-
 	SlideRootName = ''
 	SlideNames = []
 	idx = [{},{},{}]
@@ -136,8 +116,7 @@ def main():
 		sys.exit('the number of input files does not match the number of classes used (2)!')
 
 
-	# print(stats_dict)
-	# print(FLAGS.slide_filter)
+	
 	filtered_dict = [{},{},{}]
 	for k in stats_dict[0].keys():
 		#print(k)
@@ -157,15 +136,12 @@ def main():
 	# For each image in the out_filename_stats:
 	for cChannel in range(3):
 		print("Channel " + str(cChannel) + ", " + str(len(filtered_dict[cChannel].keys())) + " images")
-		# print(filtered_dict[cChannel])
 		tmp_count = 0
 		for tile in sorted(filtered_dict[cChannel].keys()):
 			tmp_count += 1
 			print(str(tmp_count) + " iterations of  " + str(cChannel))
-			# remove slide number from image name:
 			cTileRootName =  '_'.join(tile.split('_')[0:-2]) 
 
-			#print("cTileRootName: %s" % cTileRootName)
 			if cTileRootName == '':
 				print("empty field")
 				continue
@@ -174,12 +150,7 @@ def main():
 					continue
 
 				NewSlide = False
-				#if skip:
-				#	continue
-
-
 			else:
-				
 				if cTileRootName not in idx[0].keys() :
 					idx[0][cTileRootName] = [(), ()]	
 					idx[1][cTileRootName] = [(), ()]	
@@ -209,7 +180,6 @@ def main():
 						if newProb > 0.5:
 							newProb = (newProb - 0.5) / (1.0 / nThresh[cChannel] - 1) + 0.5 
 						iv1[cTileRootName].append(newProb)
-						# print("old / new probability: " + str(class_all[nClasses[0]-1]) + " / " + str(newProb))
 						if class_all[nClasses[cChannel]-1] > nThresh[cChannel]:
 							count_tiles[cTileRootName][cChannel] = count_tiles[cTileRootName][cChannel] + 1
 					else:
@@ -218,7 +188,7 @@ def main():
 							count_tiles[cTileRootName][0] = count_tiles[cTileRootName][0] + 1
 
 				else:
-					v1[cTileRootName].append(0)
+					iv1[cTileRootName].append(0)
 				idx[0][cTileRootName][0] += (iyTile,)
 				idx[0][cTileRootName][1] += (ixTile,)					
 			if (len(nClasses) > 1) & (cChannel == 1) :
@@ -228,7 +198,6 @@ def main():
 						if newProb > 0.5:
 							newProb = (newProb - 0.5) / (1.0 / nThresh[cChannel] - 1) + 0.5 
 						iv2[cTileRootName].append(newProb)
-						# print("old / new probability: " + str(class_all[nClasses[1]-1]) + " / " + str(newProb))
 						if class_all[nClasses[cChannel]-1] > nThresh[cChannel]:
 							count_tiles[cTileRootName][cChannel] = count_tiles[cTileRootName][cChannel] + 1
 					else:
@@ -247,7 +216,6 @@ def main():
 						if newProb > 0.5:
 							newProb = (newProb - 0.5) / (1.0 / nThresh[cChannel] - 1) + 0.5 
 						iv3[cTileRootName].append(newProb)
-						# print("old / new probability: " + str(class_all[nClasses[2]-1]) + " / " + str(newProb))
 						if class_all[nClasses[cChannel]-1] > nThresh[cChannel]:
 							count_tiles[cTileRootName][cChannel] = count_tiles[cTileRootName][cChannel] + 1
 					else:
@@ -282,6 +250,7 @@ def main():
 		else:
 			M3y = 0
 			M3x = 0
+
 		req_yLength = max(FLAGS.tiles_size, M1y, M2y, M3y )
 		req_xLength = max(FLAGS.tiles_size, M1x, M2x, M3x )
 		for cChannel in range(3):
@@ -314,7 +283,7 @@ if __name__ == '__main__':
   # imagenet_synset_to_human_label_map.txt:
   #   Map from synset ID to a human readable string.
   # imagenet_2012_challenge_label_map_proto.pbtxt:
-
+  
   parser.add_argument(
       '--tiles_size',
       type=int,

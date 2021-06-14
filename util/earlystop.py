@@ -43,6 +43,7 @@ class EarlyStopping:
       else:
         self.best_score = score
         self.counter = 0
+    
     elif 'accuracy' == val_criterion:
       acc = value
       score = acc
