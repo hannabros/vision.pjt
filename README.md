@@ -22,9 +22,9 @@ python train.py --config config/vit_skin.yaml --output output --csv-path skin_fi
 python train.py --config config/pit_skin.yaml --output output --csv-path skin_filter.csv
 
 ##### Lung Data
-python train.py --config config/in3_skin.yaml --output output --csv-path lung_5_129.csv
-python train.py --config config/vit_skin.yaml --output output --csv-path lung_5_129.csv
-python train.py --config config/pit_skin.yaml --output output --csv-path lung_5_129.csv
+python train.py --config config/in3_lung.yaml --output output --csv-path lung_5_129.csv
+python train.py --config config/vit_lung.yaml --output output --csv-path lung_5_129.csv
+python train.py --config config/pit_lung.yaml --output output --csv-path lung_5_129.csv
 
 ##### Focal Loss
 python train.py --config config/in3_skin.yaml --output output --csv-path skin_filter.csv --loss focal
