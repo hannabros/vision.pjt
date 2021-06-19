@@ -1,3 +1,4 @@
+__pycache__/
 !timm/data
 data/*
 !data/*.csv
@@ -8,5 +9,4 @@ heatmap/*
 *.tar
 *.zip
 **/.vscode/
-__pycache__/
 *.pyc
