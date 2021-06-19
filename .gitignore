@@ -2,8 +2,11 @@
 data/*
 !data/*.csv
 output*/*
+eval*/*
 wandb/*
 heatmap/*
 *.tar
 *.zip
 **/.vscode/
+__pycache__/
+*.pyc

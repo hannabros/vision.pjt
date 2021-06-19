@@ -9,14 +9,14 @@ pretrained: True
 num_classes: 3
 drop: 0.2
 # optimizer
-opt: adamw
+opt: sgd
 opt_eps: 1e-8
 momentums: 0.9
 weight_decay: 0.05
 # learning rate
 sched: cosine
 lr: 1e-4
-warmup_lr: 1e-4
+warmup_lr: 1e-5
 warmup_epochs: 2
 clip_grad: 1
 clip-mode: norm
@@ -24,8 +24,8 @@ cooldown_epochs: 0
 # training
 batch_size: 512
 epochs: 20
-log_interval: 1
-valid_every_n_batch: 2
+log_interval: 50
+valid_every_n_batch: 1
 # misc
 output: "/home/ubuntu/workspace/vision.pjt/output"
 csv_path: "/home/ubuntu/workspace/vision.pjt/lung_5_local.csv"
